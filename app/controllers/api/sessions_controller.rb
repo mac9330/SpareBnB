@@ -1,8 +1,8 @@
-class Api::SessionsController < ApplicationController
-    before_action :ensure_logged_in, only: [:destroy]
+class Api::SessionsController < ApplicationController 
 
     def create
-        @user = User.find_by_credentials(params[:user][:username], params[:user][:password])
+        # debugger
+        @user = User.find_by_credentials(params[:user][:email], params[:user][:password])
         if @user
             login!(@user)
             render "api/users/show"
@@ -15,9 +15,9 @@ class Api::SessionsController < ApplicationController
         @user = current_user
         if @user 
             logout!
-            render "api/users/index"
         else
             render json: ["Noone is Logged In"], status: 404
+        end
     end
 
 

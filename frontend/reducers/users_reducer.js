@@ -4,12 +4,12 @@ import {RECEIVE_CURRENT_USER} from "../actions/session_actions"
 
 const UsersReducer = (state = {}, action) => {
     Object.freeze(state);
-    const newState = state; 
-    const {user} = action
+    // const newState = merge({}, state); 
+    const {user} = action;
 
     switch(action.type) {
         case RECEIVE_CURRENT_USER:
-            return merge(newState, {[user.id]: user});
+            return merge({[user.id]: user}, state );
         default: 
             return state;
     }

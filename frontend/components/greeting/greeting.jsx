@@ -10,8 +10,8 @@ class Greeting extends React.Component {
     welcome() {
         return (
             <div>
-                <h1>Hello, {currentUser.fname} {currentUser.lname}</h1>
-                <button onClick={() => logout()}></button>
+                <h1>Hello, {this.props.currentUser.fname} {this.props.currentUser.lname}</h1>
+                <button onClick={() => this.props.logout()}>log out</button>
             </div>
         )
     }

@@ -1,12 +1,12 @@
 import * as SESSIONAPIUtil from '../util/session_api_util';
 
-export const RECIEVE_CURRENT_USER = "RECIEVE_CURRENT_USER"
+export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER"
 export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER"
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS"
 
 
 const recieveCurrentUser = (user) => ({
-    type: RECIEVE_CURRENT_USER,
+    type: RECEIVE_CURRENT_USER,
     user
 })
 
