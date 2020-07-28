@@ -3,6 +3,6 @@ import userReducer from "./users_reducer"
 
 
 
-const entitiesReducer = combineReducers({user: userReducer});
+const entitiesReducer = combineReducers({users: userReducer});
 
 export default entitiesReducer;
