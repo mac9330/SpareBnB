@@ -19,8 +19,8 @@ class Greeting extends React.Component {
     signIn() {
         return (
             <div>
-                <Link to={`/login`}>Login</Link>
-                <Link to={`/signup`}>Create Account</Link>
+                <button onClick={() => this.props.openModal("Login")}>Login</button>
+                <button onClick={() => this.props.openModal("Sign Up")}>Sign Up</button>
             </div>
         );
     }
