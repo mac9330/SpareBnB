@@ -23,10 +23,20 @@ class SessionForm extends React.Component {
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.action(user);
+        // debugger;
     }
 
     update(field) {
         return e => this.setState({[field]: e.currentTarget.value});
+    }
+
+    renderErrors() {
+        return (
+            <ul>
+                {this.props.errors.session.map((err, i) => (
+                <li key={i}>{err}</li>))}
+            </ul>
+        )
     }
 
 
@@ -37,6 +47,7 @@ class SessionForm extends React.Component {
             <form onSubmit={this.handleSubmit}>
                 <h1>Welcome to SpareBnB</h1>
                 <br/>
+                {this.renderErrors()}
                 <h3>{this.props.formType}</h3>
                 <br/>
                 <label>Email:</label>
