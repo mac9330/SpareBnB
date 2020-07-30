@@ -9,9 +9,10 @@ class Modal extends React.Component {
         this.handleClick = this.handleClick.bind(this)
     }
 
-    handleClick() {
-        this.props.clearErrors()
-        this.props.closeModal()
+    handleClick(e) {
+        e.preventDefault();
+        this.props.clearErrors();
+        this.props.closeModal();
     }
 
     render() {

@@ -1,6 +1,5 @@
 import React from "react"
-import {Link} from "react-router-dom"
-import { signup } from "../../util/session_api_util";
+// import {Link} from "react-router-dom"
 
 
 // todo add error handling // add a link to opposite form action

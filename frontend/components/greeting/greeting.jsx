@@ -1,5 +1,6 @@
 import React from "react"
 import {Link} from "react-router-dom"
+import Dropdown from "./dropdown"
 
 class Greeting extends React.Component {
     constructor(props) {
@@ -19,8 +20,7 @@ class Greeting extends React.Component {
     signIn() {
         return (
             <div>
-                <button onClick={() => this.props.openModal("Login")}>Login</button>
-                <button onClick={() => this.props.openModal("Sign Up")}>Sign Up</button>
+                <Dropdown openModal={this.props.openModal}/>
             </div>
         );
     }
