@@ -3,21 +3,20 @@ import SessionForm from "./session_form"
 import {connect} from "react-redux"
 import {login} from "../../actions/session_actions"
 import {openModal, closeModal} from '../../actions/modal_actions';
+import { testLogin } from "../../util/session_api_util";
 
 
 const msp = (state, oP) => ({
     errors: state.errors,
-    formType: "login"
+    formType: "Login",
+    className: "login"
 
 })
 
 const mdp = (dispatch) => ({
     action: (currentUser) => dispatch(login(currentUser)),
-    otherForm: (
-      <button onClick={() => dispatch(openModal('signup'))}>
-        Signup
-      </button>
-    ),
+    testLogin: () => dispatch(testLogin()),
+    otherForm: () => dispatch(openModal('Sign Up')),
     closeModal: () => dispatch(closeModal())
 
 

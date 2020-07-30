@@ -19,3 +19,17 @@ export const signup = user => (
         data: {user}
     })
 )
+
+export const testLogin = () => {
+    debugger;
+    return $.ajax({
+        url: "api/session",
+        method: "POST",
+        data: {
+            user: {
+                email: "myoung4@binghamton.edu",
+                password: "123456"
+            }
+        }
+    })
+}

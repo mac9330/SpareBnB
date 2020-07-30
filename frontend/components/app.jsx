@@ -2,25 +2,19 @@ import React from "react";
 import GreetingContainer from './greeting/greeting_container';
 import Modal from "../components/modal/modal_container"
 
-// import LoginFormContainer from "./session_form/login_form_container";
-// import SignupFormContainer from "./session_form/signup_form_container";
-
 import {
     Route,
     Redirect,
     Switch,
-    Link,
-    HashRouter
+    Link
 } from 'react-router-dom';
-import modal from "./modal/modal_container";
 
 export default () => (
     <div>
-        <Modal />
-        <header>
-            <Link to="/" className="header-link">
-            <h1>Spare BnB</h1>
-            </Link>
+        <aside className="covid-banner"><a href={`https://www.airbnb.com/covid-traveler`}>Get the latest on our COVID-19 response</a></aside>
+        <header className="header">
+            <Link to="/" ><span className="iconify" data-icon="fa-brands:airbnb" data-inline="false"></span></Link>
+        <Modal className="modal"/>
             <GreetingContainer />
             <Switch>
 

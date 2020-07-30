@@ -29,7 +29,7 @@ class Greeting extends React.Component {
 
 
     render() {
-        const {currentUser, logout} = this.props;
+        const {currentUser} = this.props;
 
         return currentUser ? this.welcome() : this.signIn();
     }
