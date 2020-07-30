@@ -19,6 +19,7 @@ class SessionForm extends React.Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleAlternate = this.handleAlternate.bind(this);
+        this.handleGuest = this.handleGuest.bind(this);
     }
 
 
@@ -26,7 +27,6 @@ class SessionForm extends React.Component {
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.action(user).then(this.props.closeModal);
-        // debugger;
     }
 
     update(field) {
@@ -55,9 +55,14 @@ class SessionForm extends React.Component {
         )
     }
 
+    handleGuest(e) {
+        e.preventDefault();
+        this.props.action({ email: "myoung4@binghamton.edu", password: "123456" }).then(this.props.closeModal);
+    }
+
     guest() {
         return(
-            <input type="submit" value="Sign in As Guest" onClick={this.props.testUser} />
+            <button className="guest-signin" onClick={this.handleGuest}>Sign in As Guest</button>
         )
     }
 
@@ -78,21 +83,26 @@ class SessionForm extends React.Component {
         )
     }
 
-    handleAlternate() {
-        this.props.otherForm()
+    handleAlternate(e) {
+        e.preventDefault();
+        this.props.otherForm();
     }
 
 
 
     render() {
         return(
-            <div className="form-container">
-                <form className={this.props.className} onSubmit={this.handleSubmit}>
+            <div className="form-container" onSubmit={this.handleSubmit}>
+                <form className={this.props.className}>
                     {this.auth()}
-                    {(this.props.formType === "Sign Up") ? this.signUp() : this.guest()}
+                    <br/>
+                    {(this.props.formType === "Sign Up") ? this.signUp() : null}
                     <br/>
                     <input type="submit" value={this.props.formType} />
-                    <br/> <p>OR</p>
+
+                    {(this.props.formType === "Sign Up") ? null : <p className="form-or"> <br/>OR</p>}
+                    {(this.props.formType === "Sign Up") ? null : <br/>}
+                    {(this.props.formType === "Sign Up") ? null : this.guest()}
                     <br/>
                     {(this.props.formType === "Sign Up") ? <p>Already have an account? </p> : <p>Don’t have an account? </p> }
                     <button type="button" onClick={this.handleAlternate}>

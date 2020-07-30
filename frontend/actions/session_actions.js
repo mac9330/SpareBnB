@@ -25,13 +25,6 @@ export const clearErrors = () => ({
     errors: []
 })
 
-export const testLogin = (currentUser) => dispatch => (
-    SESSIONAPIUtil.testLogin(currentUser)
-        .then( user => dispatch(recieveCurrentUser(user)),
-        err => (
-            dispatch(receiveErrors(err.responseJSON))))
-
-)
 
 export const login = (currentUser) => dispatch => (
     SESSIONAPIUtil.login(currentUser)
