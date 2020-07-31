@@ -36,9 +36,9 @@ class SessionForm extends React.Component {
 
     renderErrors() {
         return (
-            <ul>
+            <ul className="errors-list">
                 {this.props.errors.session.map((err, i) => (
-                <li key={i}>{err}</li>))}
+                    <li key={i}><i className="fa fa-exclamation-circle" aria-hidden="true"></i> {err}</li>))}
             </ul>
         )
     }
