@@ -1,7 +1,7 @@
 import React from "react";
-import GreetingContainer from './greeting/greeting_container';
-import Modal from "../components/modal/modal_container"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
+import Splash from "./splash"
+import NotFound from "./404"
+
 
 import {
     Route,
@@ -12,13 +12,10 @@ import {
 
 export default () => (
     <div>
-        <aside className="covid-banner"><a href={`https://www.airbnb.com/covid-traveler`}>Get the latest on our COVID-19 response</a></aside>
-        <header className="header">
-        <Modal className="modal"/>
-            <GreetingContainer />
-            <Switch>
-
-            </Switch>
-        </header>
+        
+        <Switch>
+            <Route exact path="/" component={Splash}/>
+            <Route component={NotFound} />
+        </Switch>
     </div>
 );
