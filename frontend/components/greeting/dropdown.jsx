@@ -39,8 +39,7 @@ class Dropdown extends React.Component {
     
     showDropdown() {
         return(
-            <div className="auth-dropdown"
-                ref={(dropdown) => { this.dropdownMenu = dropdown; }}>
+            <div className="auth-dropdown">
 
                 <button className="dropdown-btn" onClick={this.loginForm}>Log In </button>
                 <button className="dropdown-btn" onClick={this.signupForm}>Sign Up </button>

@@ -22,7 +22,7 @@ class UserDropdown extends React.Component {
         })
     }
 
-    logoutForm(e) {
+    logoutForm() {
         this.props.logout();
     }
 
@@ -35,8 +35,7 @@ class UserDropdown extends React.Component {
 
     showDropdown() {
         return (
-            <div className="auth-dropdown"
-                ref={(dropdown) => { this.dropdownMenu = dropdown; }}>
+            <div className="auth-dropdown">
 
                 <button className="dropdown-btn" onClick={this.logoutForm}>Log Out </button>
             </div>

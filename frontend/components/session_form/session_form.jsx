@@ -76,7 +76,7 @@ class SessionForm extends React.Component {
                 {this.renderErrors()}
                 <br/>
                 <label>Email:</label>
-                <input className={this.state.email.length < 1 && this.submitted ? "auth-input" : null} type="password" value={this.state.email} onChange={this.update("email")} />
+                <input className={this.state.email.length < 1 && this.submitted ? "auth-input" : null} type="text" value={this.state.email} onChange={this.update("email")} />
                 <br />
                 <label>Password:</label>
                 <input className={this.state.password.length < 6 && this.submitted ? "auth-input" : null} type="password" value={this.state.password} onChange={this.update("password")} />
