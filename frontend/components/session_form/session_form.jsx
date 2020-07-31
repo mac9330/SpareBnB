@@ -87,6 +87,7 @@ class SessionForm extends React.Component {
 
     handleAlternate(e) {
         e.preventDefault();
+        this.props.clearErrors();
         this.props.otherForm();
     }
 
