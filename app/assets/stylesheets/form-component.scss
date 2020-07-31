@@ -39,4 +39,9 @@
         flex-direction: column;
         width: 500px;
     }
+
+    .auth-input {
+        border: 1px solid red;
+        background-color: $error-background;
+    }
 }

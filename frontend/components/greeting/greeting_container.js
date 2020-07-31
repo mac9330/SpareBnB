@@ -12,7 +12,6 @@ const msp = ({session, errors, entities: {users}}) => {
 // currentUser: users[session.id]
 
 const mdp = (dispatch) => ({
-    logout: () => dispatch(logout()),
     openModal: (modal) => dispatch(openModal(modal))
 
 });

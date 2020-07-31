@@ -1,5 +1,5 @@
 .header{
-    display: flex;
+    display: block;
     background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/dd3f1937594867.5745a6785be0c.png);
     width: 100%;
     height: 575px;
@@ -12,6 +12,104 @@
 
     }
 
+
+
+    .auth-button {
+        border: 1px solid $auth;
+        background: white;
+        color: $black; 
+        display: inline-flex;
+        padding: 5px 5px 5px 12px;
+        align-items: center;
+        border-radius: 21px;
+        width: 58px;
+        height: 30px;
+        position: relative;
+        cursor: pointer;
+
+    }
+
+    .sign-in-div, .welcome-div {
+
+        padding: 20px 40px;
+        display: flex;
+        position: relative;
+        justify-content: space-between;
+        display: flexbox;
+    }
+
+    .logo {
+       font-size: 40px;
+    }
+
+    .fa-bars {
+        color: $grey;
+        margin-left: 12px;
+        position: relative;
+        z-index: 1;
+        font-size: 16px;
+        display: block;
+        height: 100%;
+        width: 100%;
+        left: -10px;
+        
+    }
+
+    .fa-user-circle,
+    .fa-door-open {
+        color: $grey;
+        margin-left: 12px;
+        position: relative;
+        z-index: 1;
+        font-size: 25px;
+        display: block;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        left: -10px;
+    }
+
+    .fa-user-plus {
+        color: $grey;
+        margin-left: 12px;
+        position: relative;
+        z-index: 1;
+        font-size: 18px;
+        display: block;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        left: -10px;
+    }
+
+
+    .auth-dropdown {
+        right: 44px;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        top: 66px;
+        background-color: $white;
+        border: 1px solid #717171;
+        border-radius: 13px;
+        padding: 8px 0;
+        
+    }
+    
+    .dropdown-btn {
+        display: flex;
+        padding: 10px 100px 10px 12px;
+        font-weight: bolder;
+        border-bottom: 1px solid $black;
+
+
+    }
+
+    .dropdown-btn:hover {
+        background-color: $hover;
+    }
+
+    
 
 
 }

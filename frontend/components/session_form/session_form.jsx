@@ -19,11 +19,13 @@ class SessionForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleAlternate = this.handleAlternate.bind(this);
         this.handleGuest = this.handleGuest.bind(this);
+        this.submitted = false;
     }
 
 
     handleSubmit(e) {
         e.preventDefault();
+        this.submitted = true;
         const user = Object.assign({}, this.state);
         this.props.action(user).then(this.props.closeModal);
     }
@@ -45,10 +47,10 @@ class SessionForm extends React.Component {
         return(
             <div>
                 <label>First Name:</label>
-                <input type="text" value={this.state.fname} onChange={this.update("fname")} />
+                <input className={this.state.fname.length < 1 && this.submitted ? "auth-input" : null} type="password" type="text" value={this.state.fname} onChange={this.update("fname")} />
                 <br/>
                 <label>Last Name:</label>
-                <input type="text" value={this.state.lname} onChange={this.update("lname")} />
+                <input className={this.state.lname.length < 1 && this.submitted ? "auth-input" : null} type="password" type="text" value={this.state.lname} onChange={this.update("lname")} />
                 <br/> 
             </div>
         )
@@ -69,14 +71,15 @@ class SessionForm extends React.Component {
         return (
             <div>
                 <br />
-                { this.renderErrors() }
                 <header className="form-header"><h3 className="form-title">{this.props.formType}</h3></header>
                 <br />
+                {this.renderErrors()}
+                <br/>
                 <label>Email:</label>
-                <input type="text" value={this.state.email} onChange={this.update("email")} />
+                <input className={this.state.email.length < 1 && this.submitted ? "auth-input" : null} type="password" value={this.state.email} onChange={this.update("email")} />
                 <br />
                 <label>Password:</label>
-                <input type="password" value={this.state.password} onChange={this.update("password")} />
+                <input className={this.state.password.length < 6 && this.submitted ? "auth-input" : null} type="password" value={this.state.password} onChange={this.update("password")} />
                 <br />
             </div>
         )

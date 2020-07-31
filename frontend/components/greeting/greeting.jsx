@@ -1,6 +1,9 @@
 import React from "react"
 import {Link} from "react-router-dom"
 import Dropdown from "./dropdown"
+import { Icon, InlineIcon } from '@iconify/react';
+import airbnbIcon from '@iconify/icons-fa-brands/airbnb';
+import UserDropdown from "./user_dropdown"
 
 class Greeting extends React.Component {
     constructor(props) {
@@ -10,20 +13,23 @@ class Greeting extends React.Component {
 
     welcome() {
         return (
-            <div>
-                <h1>Hello, {this.props.currentUser.fname} {this.props.currentUser.lname}</h1>
-                <button onClick={() => this.props.logout()}>log out</button>
+            <div className="welcome-div">
+                <Link to="/" ><InlineIcon icon={airbnbIcon} className="logo" /></Link>
+                <UserDropdown logout={this.props.logout} />
             </div>
         )
     }
 
     signIn() {
         return (
-            <div>
+            <div className="sign-in-div">
+            <Link to="/" ><InlineIcon icon={airbnbIcon} className="logo" /></Link>
                 <Dropdown openModal={this.props.openModal}/>
             </div>
         );
     }
+
+
         
 
 
