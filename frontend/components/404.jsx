@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom"
 
 export default () => (
     <div >
@@ -9,7 +10,8 @@ export default () => (
                 <h3>Error code: 404</h3>
                 <ul>
                     <li><p>Here are some helpful links instead:</p></li>
-                    <li><a href="/"><p>Home</p></a></li>
+                    {/* <li><a href="/"><p>Home</p></a></li> */}
+                    <Link to="/"><li><p>Home</p></li></Link>
                 </ul>
             </div>
             <img src="https://a0.muscache.com/airbnb/static/error_pages/404-Airbnb_final-d652ff855b1335dd3eedc3baa8dc8b69.gif"></img>

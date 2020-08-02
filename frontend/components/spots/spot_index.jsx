@@ -1,26 +1,21 @@
 import React from "react"
+import SpotIndexItem from "./spot_index_item"
 
 
 
-class SpotIndex extends React.Component {
-    componentDidMount() {
-       this.props.fetchSpots
-    }
 
-    render() {
-        debugger;
-        return(
-            <div>
-                <ul>
-                    {
-                        this.props.spots.map(spot => (
-                        <li key={spot.id}>{spot.name}</li>
-                        ))
-                    }
-                </ul>
-            </div>
-        )
-    }
+const SpotIndex = ({spots}) => {
+
+
+    return(
+        <ul>
+            {
+                spots.map(spot => (<SpotIndexItem spot={spot} key={spot.id}/>))
+            }
+        </ul>
+    ) 
+
 }
 
 export default SpotIndex;
+

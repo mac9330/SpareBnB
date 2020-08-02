@@ -1,5 +1,6 @@
 import * as SpotAPIUtil from '../util/spot_api_util'
 
+
 export const RECIEVE_SPOTS = "RECIEVE_SPOTS"
 export const RECIEVE_SPOT = "RECIEVE_SPOT"
 
@@ -12,13 +13,21 @@ const recieveSpot = (spot) => ({
     spot
 })
 
-export const fetchSpots = () => dispatch => (
-    SpotAPIUtil.fetchSpots()
-        .then(spots => dispatch(recieveSpots(spots)))
-)
+export const fetchSpots = (filters) => dispatch => {
+    return SpotAPIUtil.fetchSpots(filters)
+        .then(spots => (dispatch(recieveSpots(spots))
+    ))
+};
 
 export const fetchSpot = (spotId) => dispatch => (
     SpotAPIUtil.fetchSpot()
         .then(spot => dispatch(recieveSpot(spot)))
         
 )
+
+
+export const fetchBenches = filters => dispatch => (
+    APIUtil.fetchBenches(filters)
+        .then(benches => dispatch(receiveBenches(benches)
+    ))
+);

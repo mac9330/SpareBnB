@@ -38,6 +38,8 @@ gem 'pry-rails'
 
 gem 'faker'
 
+gem "figaro"
+
 gem 'jquery-rails'
 
 gem 'pongal', '~> 0.0.1'
