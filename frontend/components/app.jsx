@@ -1,7 +1,8 @@
 import React from "react";
-import Splash from "./splash"
-import NotFound from "./404"
-import SpotSearch from "./spots/spot_search_container";
+import SplashContainer from "./splash"
+import NotFoundContainer from "./404"
+import SpotSearchContainer from "./spots/spot_search_container";
+import SpotShowContainer from "./spots/spot_show_container"
 
 
 import {
@@ -15,9 +16,10 @@ export default () => (
     <div>
         
         <Switch>
-            <Route exact path="/" component={Splash}/>
-            <Route exact path="/spots/" component={SpotSearch} />
-            <Route component={NotFound} />
+            <Route exact path="/" component={SplashContainer}/>
+            <Route exact path="/spots" component={SpotSearchContainer} />
+            <Route path="/spots/:spotId" component={SpotShowContainer} />
+            <Route component={NotFoundContainer} />
         </Switch>
     </div>
 );

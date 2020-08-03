@@ -1,15 +1,17 @@
 import merge from "lodash.merge"
-import {RECIEVE_SPOTS, RECIEVE_SPOT} from "../actions/spot_actions"
+import {RECEIVE_SPOTS, RECEIVE_SPOT} from "../actions/spot_actions"
 
 const SpotReducer = (state = {}, action) => {
     Object.freeze(state)
     const newState = merge({}, state)
 
     switch(action.type) {
-        case RECIEVE_SPOTS:
+        case RECEIVE_SPOTS:
             return action.spots;
-        case RECIEVE_SPOT:
-            return merge(newState, {[action.spot.id]: action.spot});
+        case RECEIVE_SPOT:
+            debugger;
+            const {spot} = action; // Todo ask andy why this is happening
+            return merge(newState, { [spot.id]: spot });
         default:
             return state;
     }

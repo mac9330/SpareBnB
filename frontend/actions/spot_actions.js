@@ -1,28 +1,27 @@
 import * as SpotAPIUtil from '../util/spot_api_util'
 
 
-export const RECIEVE_SPOTS = "RECIEVE_SPOTS"
-export const RECIEVE_SPOT = "RECIEVE_SPOT"
+export const RECEIVE_SPOTS = "RECEIVE_SPOTS"
+export const RECEIVE_SPOT = "RECEIVE_SPOT"
 
-const recieveSpots = (spots) => ({
-    type: RECIEVE_SPOTS,
+const receiveSpots = (spots) => ({
+    type: RECEIVE_SPOTS,
     spots
 })
-const recieveSpot = (spot) => ({
-    type: RECIEVE_SPOTS,
+const receiveSpot = (spot) => ({
+    type: RECEIVE_SPOT,
     spot
 })
 
 export const fetchSpots = (filters) => dispatch => {
     return SpotAPIUtil.fetchSpots(filters)
-        .then(spots => (dispatch(recieveSpots(spots))
+        .then(spots => (dispatch(receiveSpots(spots))
     ))
 };
 
-export const fetchSpot = (spotId) => dispatch => (
-    SpotAPIUtil.fetchSpot()
-        .then(spot => dispatch(recieveSpot(spot)))
-        
+export const fetchSpot = (spotId) => dispatch => ( 
+    SpotAPIUtil.fetchSpot(spotId)
+        .then(spot => dispatch(receiveSpot(spot)))
 )
 
 

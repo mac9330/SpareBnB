@@ -6,7 +6,6 @@ import SpotIndexItem from "./spot_index_item"
 
 const SpotIndex = ({spots}) => {
 
-
     return(
         <ul>
             {
