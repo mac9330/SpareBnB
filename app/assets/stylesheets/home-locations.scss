@@ -1,0 +1,117 @@
+
+.home-locations {
+    display: flex;
+    align-items: column;
+    padding-top: 25px;
+    padding-bottom: 25px;
+
+    .location-container, .location-ele {
+        display: flex;
+        flex-direction: column;
+    }
+
+        .location-container {
+            display: flex;
+            width: 30%;
+            height: 75px;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: column;
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+        }
+
+        .location-ele {
+            display: flex;
+            width: 100%;
+            height: 75px;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: column;
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+
+        }
+
+    img {
+        position: relative;
+        height: 72px;
+        margin-right: 12px;
+        overflow: hidden;
+        border-radius: 12px;
+        flex: 0 0 72px;
+        width: auto;
+        max-width: 75px;
+    }
+
+    // .location-container {
+    //     display: flex;
+    //     width: 30%;
+    //     height: 75px;
+    //     margin-bottom: 50px;
+    //     display: flex;
+    //     align-items: column;
+    //     display: flex;
+    //     flex-direction: row;
+    //     justify-content: left;
+    // }
+
+
+
+
+    .location-link {
+        line-height: 20px;
+        color: rgb(34, 34, 34);
+        display: flex;
+        align-items: center;
+    }
+
+    .location-text {
+        font-weight: 600;
+        p {
+            font-weight: 400;
+            b {
+                font-weight: 600;
+            }
+        }
+    }
+
+
+
+}
+
+.locations-div {
+
+    padding-top: 32px;
+    padding-bottom: 17px;
+    font-family: $fontbnb;
+    padding-right: 44px;
+    padding-left: 60px;
+
+    h3 {
+        padding-top: 50px;
+        font-size: 22px;
+        line-height: 26px;
+        color: black;
+        font-weight: 600;
+        margin-bottom: 32px;
+        display: block;
+    }
+
+}
+
+.box-1 {
+    flex:1;
+}
+.box-2 {
+    flex:1;
+}
+.box-3 {
+    flex:1;
+}
+.box-4 {
+    flex:1;
+}
+
