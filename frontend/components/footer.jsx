@@ -2,13 +2,11 @@ import React from "react"
 import {Link} from "react-router-dom"
 
 class Footer extends React.Component {
-    
 
 
     render() {
-        debugger
-        return this.props.location.pathname === "/spots/" ? null : (
-            <div className="footer">
+        return(
+            <div className="footer" id="footer">
                 <div className="footer-my-links">
                     <h3>My Links</h3>
                     <Link to="/">Github</Link>

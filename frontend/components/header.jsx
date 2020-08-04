@@ -12,11 +12,11 @@ class Header extends React.Component {
 render () {
     return(
         <div>
-            {this.homeAside()}
-            <header className={this.props.match.isExact ? "home-header" : "header"}>
+            <header id="header" className="header">
                 <Modal className="modal" />
                 <GreetingContainer />
             </header>
+            <div className="space-taker"></div>
         </div>
 
     )

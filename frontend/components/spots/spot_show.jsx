@@ -18,9 +18,7 @@ class SpotShow extends React.Component {
     render() {
         const {spot} = this.props;
         return(
-            <div>
-                Spot Show
-                {name}
+            <div className="spot-show">
                 <SpotInformation spot={spot}/>
             </div>
         )

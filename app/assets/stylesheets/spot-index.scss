@@ -19,7 +19,7 @@
         bottom: 0;
         width:600px;
         right:0;
-        height: 100%;
+        height: calc(100% - 80px); // add event handler for scroll 
 
     }
 

@@ -5,7 +5,7 @@ import { updateBounds } from "../../actions/filter_actions"
 
 
 
-const msp = (state) => ({
+const msp = (state, oP) => ({
     spots: Object.values(state.entities.spots)
 })
 

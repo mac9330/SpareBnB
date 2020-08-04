@@ -10,7 +10,7 @@ export default (props) => {
 
     return (
         <div>
-            <h1>{name}</h1>
+            <h1 className="show-heading">{name}</h1>
             <p>{description}</p>
             <p>{price}</p>
         </div>

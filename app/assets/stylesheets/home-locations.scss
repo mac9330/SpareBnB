@@ -4,10 +4,12 @@
     align-items: column;
     padding-top: 25px;
     padding-bottom: 25px;
+    padding-right: 25px;
 
     .location-container, .location-ele {
         display: flex;
         flex-direction: column;
+        cursor: pointer;
     }
 
         .location-container {
@@ -83,8 +85,6 @@
 }
 
 .locations-div {
-
-    padding-top: 32px;
     padding-bottom: 17px;
     font-family: $fontbnb;
     padding-right: 44px;
@@ -92,7 +92,6 @@
     border-bottom: 1px solid rgb(216, 215, 215);
 
     h3 {
-        padding-top: 50px;
         font-size: 22px;
         line-height: 26px;
         color: black;

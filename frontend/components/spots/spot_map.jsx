@@ -5,15 +5,15 @@ import MarkerManager from "../../util/marker_manager"
 // maps api does not work heroku
 
 class SpotMap extends React.Component {
-
+    // center: { lat: 40.730610, lng: -73.935242 },
     
     componentDidMount() {
-        debugger;
+        document.getElementById("footer").className = "hidden-footer"
         const mapOptions = {
-            center: { lat: 40.730610, lng: -73.935242 },
+            center: { lat: parseFloat(this.props.lat), lng: parseFloat(this.props.lng) },
             zoom: 12
         };
-
+        debugger
         this.map = new google.maps.Map(this.mapNode, mapOptions);
         this.MarkerManager = new MarkerManager(this.map);
         this.filterBounds();
@@ -23,6 +23,10 @@ class SpotMap extends React.Component {
     componentDidUpdate() {
         this.MarkerManager.updateMarkers(this.props.spots);
         // this.filterBounds();
+    }
+
+    componentWillUnmount() {
+        document.getElementById("footer").className = "footer"
     }
 
     // addListener() {
@@ -57,7 +61,7 @@ class SpotMap extends React.Component {
 
     render() {
         return (
-            <div className="spot-map" ref={map => this.mapNode = map}>
+            <div className="spot-map" id="map" ref={map => this.mapNode = map}>
                 Spots Map?
             </div>
         )
