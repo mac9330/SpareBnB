@@ -2,9 +2,8 @@ import React from 'react'
 
 
 export default (props) => {
-    debugger
 
-    const spot = props ? props.spot : null; // Todo Ask Andy
+    const spot = props ? props.spot : null;
     const name = spot ? spot.name : null;
     const description = spot ? spot.description : null;
     const price = spot ? spot.price : null;

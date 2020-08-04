@@ -38,7 +38,6 @@ class MarkerManager {
       }
 
       removeMarker(spot) {
-          debugger
           this.markers[spot.id].setMap(null);
           delete this.markers[spot.id]
       }

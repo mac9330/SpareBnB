@@ -20,7 +20,7 @@ csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   
   u = User.create(email: Faker::Internet.email, password: "hunter2", fname: Faker::Name.first_name, lname: Faker::Name.last_name)
-  s = Spot.create(user_id: u.id, name: Faker::Marketing.buzzwords, description: row["description"], price: row["price"].to_i, num_beds: row["num_beds"].to_i, num_bedrooms: row["num_bedrooms"].to_i, num_bathrooms: row["num_bathrooms"].to_i, max_occupancy: row["max_occupancy"].to_i, latitude: row["latitude"].to_f, longitude: row["longitude"].to_f)
+  s = Spot.create(user_id: u.id, name: Faker::Lorem.sentence(word_count: 3, supplemental: true), description: row["description"], price: row["price"][1..-1].to_f, num_beds: row["num_beds"].to_i, num_bedrooms: row["num_bedrooms"].to_i, num_bathrooms: row["num_bathrooms"].to_f, max_occupancy: row["max_occupancy"].to_i, latitude: row["latitude"].to_f, longitude: row["longitude"].to_f)
 end
 
 demo = User.create(email: "myoung4@binghamton.edu", password: "123456", fname: "Mackenzie", lname: "Young")

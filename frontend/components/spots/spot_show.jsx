@@ -16,7 +16,6 @@ class SpotShow extends React.Component {
 
 
     render() {
-        debugger;
         const {spot} = this.props;
         return(
             <div>

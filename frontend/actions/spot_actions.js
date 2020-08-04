@@ -13,6 +13,14 @@ const receiveSpot = (spot) => ({
     spot
 })
 
+
+
+
+export const postSpot = (spot) => dispatch => {
+    return SpotAPIUtil.postSpot(spot).then(spot => dispatch(receiveSpot(spot)))
+}
+
+
 export const fetchSpots = (filters) => dispatch => {
     return SpotAPIUtil.fetchSpots(filters)
         .then(spots => (dispatch(receiveSpots(spots))

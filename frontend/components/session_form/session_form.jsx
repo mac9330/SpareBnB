@@ -2,7 +2,6 @@ import React from "react"
 // import {Link} from "react-router-dom"
 
 
-// todo add error handling // add a link to opposite form action
 
 class SessionForm extends React.Component {
 

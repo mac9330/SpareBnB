@@ -7,9 +7,9 @@ import SpotIndexItem from "./spot_index_item"
 const SpotIndex = ({spots}) => {
 
     return(
-        <ul>
+        <ul className="spot-idx">
             {
-                spots.map(spot => (<SpotIndexItem spot={spot} key={spot.id}/>))
+                spots.map(spot => (<SpotIndexItem className="spot-index-item" spot={spot} key={spot.id}/>))
             }
         </ul>
     ) 
