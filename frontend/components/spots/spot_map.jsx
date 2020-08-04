@@ -1,11 +1,14 @@
 import React from "react"
 import MarkerManager from "../../util/marker_manager"
 
+// todo login/logout dropdown is stuck behind maps api
+// maps api does not work heroku
 
 class SpotMap extends React.Component {
 
     
     componentDidMount() {
+        debugger;
         const mapOptions = {
             center: { lat: 40.730610, lng: -73.935242 },
             zoom: 12
@@ -18,7 +21,7 @@ class SpotMap extends React.Component {
     }
 
     componentDidUpdate() {
-        this.MarkerManager.updateMarkers(this.props.spots)
+        this.MarkerManager.updateMarkers(this.props.spots);
         // this.filterBounds();
     }
 

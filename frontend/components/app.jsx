@@ -5,6 +5,7 @@ import SpotSearchContainer from "./spots/spot_search_container";
 import SpotShowContainer from "./spots/spot_show_container"
 import SpotCreateFormContainer from "./spots/spot_create_form_container"
 import Home from "./home"
+import Footer from "./footer"
 
 
 
@@ -20,7 +21,7 @@ export default () => (
     <div>
 
         <Route path="/" component={Header} />
-        
+
         <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/spots" component={SpotSearchContainer} />
@@ -28,5 +29,6 @@ export default () => (
             <Route path="/spots/:spotId" component={SpotShowContainer} />
             <Route component={NotFoundContainer} />
         </Switch>
+            <Route path="/" component={Footer} />
     </div>
 );
