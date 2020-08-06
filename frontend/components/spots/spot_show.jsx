@@ -20,6 +20,8 @@ class SpotShow extends React.Component {
         return(
             <div className="spot-show">
                 <SpotInformation spot={spot}/>
+                <SpotMap spot={spot} />
+
             </div>
         )
     }

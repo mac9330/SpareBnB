@@ -1,5 +1,80 @@
 .spot-show {
+    margin: 15px;
+    margin-left: 100px;
+    margin-right: 100px;
     .show-heading {
         font-size: 25px;
     }
+
+    .city-link {
+        color: rgb(73, 72, 72);
+        cursor: pointer;
+        font-size: 14px;
+        line-height: 20px;
+        text-decoration: underline;
+        font-weight: 600;
+    }
+
+    .img-show {
+        width: 85%;
+        height: 850;
+    }
+
+    .flex-container-container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        height: 100%;
+        width: 100%;
+        border-radius: 200px;
+        padding: 50px;
+        justify-content: center;
+
+    }
+
+    .div-flex {
+        flex: 1;
+        display: inline;
+
+    }
+
+    .div-flex2 {
+        flex: 1;
+        display: inline-flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .main-img {
+    height: 100%;
+    width: 100%;
+    }
+
+    .side-img {
+        width: 47%;
+        height: 52.7%;
+        padding: 5px;
+        padding-top: 0px;
+        padding-bottom: 0;
+    }
+
+    .pres-image {
+        border-bottom-left-radius: 20px;
+        border-top-left-radius: 20px;
+    }
+
+    .bot-right {
+        border-bottom-right-radius: 20px;
+    }
+
+    .top-right {
+        border-top-right-radius: 20px;
+    }
+
+    img {
+        // border-radius: 20px;
+    }
+
 }
+
+

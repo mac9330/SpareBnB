@@ -15,7 +15,6 @@ class SpotSearch extends React.Component {
         query = query.split("&")
 
 
-        debugger;
         return(
             <div className="overflow-hidden">
                 <div className="spot-search">

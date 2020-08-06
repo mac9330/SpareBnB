@@ -8,6 +8,10 @@
     <%= javascript_include_tag 'application' %>
     <%= favicon_link_tag 'favicon.png' %>
 
+    <script type="text/javascript">
+      window.photo = "parebnb/app/assets/images/bed.png"
+    </script>
+
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['MAPS_API_KEY']}" %>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

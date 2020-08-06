@@ -1,5 +1,6 @@
 import React from "react"
 import MarkerManager from "../../util/marker_manager"
+import {withRouter} from 'react-router-dom'
 
 // todo login/logout dropdown is stuck behind maps api
 // maps api does not work heroku
@@ -13,21 +14,34 @@ class SpotMap extends React.Component {
             center: { lat: parseFloat(this.props.lat), lng: parseFloat(this.props.lng) },
             zoom: 12
         };
-        debugger
         this.map = new google.maps.Map(this.mapNode, mapOptions);
         this.MarkerManager = new MarkerManager(this.map);
-        this.filterBounds();
+        
+        if (this.props.spots) this.filterBounds();
         
     }
 
     componentDidUpdate() {
-        this.MarkerManager.updateMarkers(this.props.spots);
+        if (this.props.spot) {
+            this.MarkerManager.updateMarkers([this.props.spot])
+        } 
+        else {
+            this.MarkerManager.updateMarkers(this.props.spots);
+        }
         // this.filterBounds();
     }
 
     componentWillUnmount() {
         document.getElementById("footer").className = "footer"
     }
+
+    _handleClick(coords) {
+        this.props.history.push({
+            pathname: "benches/new",
+            search: `lat=${coords.lat}&lng=${coords.lng}`
+        });
+    };
+
 
     // addListener() {
     //     google.maps.event.addListener(this.map, 'idle', () => {
@@ -68,4 +82,4 @@ class SpotMap extends React.Component {
     }
 }
 
-export default SpotMap;
+export default withRouter(SpotMap);

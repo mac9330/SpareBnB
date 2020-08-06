@@ -6,6 +6,7 @@ class Home extends React.Component {
 
 
     componentDidMount() {
+        debugger
         document.getElementById("header").className = "home-header"
     }
 
