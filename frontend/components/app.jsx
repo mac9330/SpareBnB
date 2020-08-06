@@ -19,9 +19,7 @@ import {
 
 export default () => (
     <div>
-
         <Header/>
-
         <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/spots" component={SpotSearchContainer} />
@@ -29,6 +27,6 @@ export default () => (
             <Route path="/spots/:spotId" component={SpotShowContainer} />
             <Route component={NotFoundContainer} />
         </Switch>
-            <Footer />
+        <Footer />
     </div>
 );

@@ -8,6 +8,8 @@ export default (props) => {
     const name = spot ? spot.name : null;
     const description = spot ? spot.description : null;
     const price = spot ? spot.price : null;
+    const user = spot ? spot.user : null;
+    const owner_name = user ? user.fname : null
 
     return (
         <div>
@@ -43,6 +45,7 @@ export default (props) => {
             </div>
             <p>{description}</p>
             <p>{price}</p>
+            <p>{owner_name}</p>
         </div>
 
     )

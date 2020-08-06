@@ -2,7 +2,6 @@ import React from "react"
 import MarkerManager from "../../util/marker_manager"
 import { withRouter } from 'react-router-dom'
 
-// todo login/logout dropdown is stuck behind maps api
 // maps api does not work heroku
 
 
