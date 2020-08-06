@@ -1,30 +1,18 @@
 import React from "react"
 import SpotInformation from "./spot_information"
+import SingleSpotMap from "./single_spot_map"
 
 
-class SpotShow extends React.Component {
+const SpotShow = ({ spot, spotId, fetchSpot }) => {
 
-    constructor(props) {
-        super(props)
-    }
-
-    componentDidMount() {
-        this.props.fetchSpot(this.props.match.params.spotId)
-    }
-
-
-
-
-    render() {
-        const {spot} = this.props;
+        
         return(
             <div className="spot-show">
-                <SpotInformation spot={spot}/>
-                <SpotMap spot={spot} />
+                <SpotInformation spot={spot} fetchSpot={fetchSpot} />
+                <SingleSpotMap spotId={spotId} fetchSpot={fetchSpot} spot={spot} />
 
             </div>
         )
-    }
 }
 
 export default SpotShow;

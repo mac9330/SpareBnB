@@ -2,11 +2,10 @@ import React from "react"
 import MarkerManager from "../../util/marker_manager"
 import {withRouter} from 'react-router-dom'
 
-// todo login/logout dropdown is stuck behind maps api
-// maps api does not work heroku
+
+// todo maps api does not work heroku
 
 class SpotMap extends React.Component {
-    // center: { lat: 40.730610, lng: -73.935242 },
     
     componentDidMount() {
         document.getElementById("footer").className = "hidden-footer"
@@ -16,46 +15,26 @@ class SpotMap extends React.Component {
         };
         this.map = new google.maps.Map(this.mapNode, mapOptions);
         this.MarkerManager = new MarkerManager(this.map);
-        
-        if (this.props.spots) this.filterBounds();
+        this.filterBounds();
         
     }
 
     componentDidUpdate() {
-        if (this.props.spot) {
-            this.MarkerManager.updateMarkers([this.props.spot])
-        } 
-        else {
-            this.MarkerManager.updateMarkers(this.props.spots);
-        }
-        // this.filterBounds();
+        this.MarkerManager.updateMarkers(this.props.spots);
     }
 
     componentWillUnmount() {
         document.getElementById("footer").className = "footer"
     }
 
-    _handleClick(coords) {
-        this.props.history.push({
-            pathname: "benches/new",
-            search: `lat=${coords.lat}&lng=${coords.lng}`
-        });
-    };
-
-
-    // addListener() {
-    //     google.maps.event.addListener(this.map, 'idle', () => {
-
-    //         const northEast = this.map.getBounds().getNorthEast();
-    //         const southWest = this.map.getBounds().getSouthWest();
-    //         const bounds = {
-    //             northEast: {lat: northEast.lat(), lng: northEast.lng()},
-    //             southWest: {lat: southWest.lat(), lng: northEast.lng()}
-    //         };
-    //         this.props.updateBounds(bounds);;
-    //         this.MarkerManager.updateMarkers(this.props.spots)
+    // _handleClick(coords) {
+    //     this.props.history.push({
+    //         pathname: "benches/new",
+    //         search: `lat=${coords.lat}&lng=${coords.lng}`
     //     });
-    // }
+    // };
+
+
 
     filterBounds() {
         this.map.addListener('idle', () => {

@@ -4,7 +4,11 @@ import {fetchSpot} from "../../actions/spot_actions"
 
 
 const msp = (state, oP) => {
-    return {spot: state.entities.spots[oP.match.params.spotId]}
+    return {
+        spot: state.entities.spots[oP.match.params.spotId],
+        spotId: oP.match.params.spotId
+    
+    }
 };
 
 
