@@ -40,6 +40,8 @@ gem 'faker'
 
 gem "figaro"
 
+gem "aws-sdk-s3"
+
 gem 'jquery-rails'
 
 gem 'pongal', '~> 0.0.1'

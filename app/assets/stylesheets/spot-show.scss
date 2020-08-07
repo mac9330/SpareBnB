@@ -70,7 +70,32 @@
     .top-right {
         border-top-right-radius: 20px;
     }
+    
+    
+    .spot-description {
+        color: rgb(34, 34, 34);
+        font-family: $fontbnb;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        word-break: break-word;
+        margin-bottom: 20px;
+    }
 
+    
+    .spot-price {
+        color: rgb(34, 34, 34);
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 24px;
+        padding-bottom: 25px;
+    }
+    
+    .single-spot-price {
+        font-weight: 600;
+    }
+
+    
 }
 
 .map,
@@ -78,5 +103,6 @@
     width: 1200px;
     height: 500px;
 }
+
 
 

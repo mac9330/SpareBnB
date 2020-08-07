@@ -24,7 +24,7 @@ class SpotMap extends React.Component {
     }
 
     componentWillUnmount() {
-        document.getElementById("footer").className = "footer"
+        document.getElementById("footer").className = "footer" // dont look here cathy just my site
     }
 
     // _handleClick(coords) {

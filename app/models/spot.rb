@@ -22,6 +22,8 @@ class Spot < ApplicationRecord
 
     belongs_to :user
 
+    has_many_attached :photo
+
     def self.in_bounds(bounds)
         self
             .where("latitude < ?", bounds[:northEast][:lat])
@@ -29,5 +31,4 @@ class Spot < ApplicationRecord
             .where("longitude < ?", bounds[:northEast][:lng])
             .where("longitude > ?", bounds[:southWest][:lng])
     end
-
 end

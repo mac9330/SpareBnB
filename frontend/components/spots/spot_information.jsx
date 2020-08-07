@@ -9,7 +9,9 @@ export default (props) => {
     const description = spot ? spot.description : null;
     const price = spot ? spot.price : null;
     const user = spot ? spot.user : null;
-    const owner_name = user ? user.fname : null
+    const owner_name = user ? user.fname : null;
+    // other option -- 
+    // check if props.spot exists then render null until props.spot exists  
 
     return (
         <div>
@@ -43,8 +45,8 @@ export default (props) => {
 
 
             </div>
-            <p>{description}</p>
-            <p>{price}</p>
+            <p className="spot-description">{description}</p>
+            <p className="spot-price"><span className="single-spot-price">${price}</span>/ night</p>
             <p>{owner_name}</p>
         </div>
 
