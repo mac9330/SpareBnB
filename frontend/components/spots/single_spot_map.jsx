@@ -10,6 +10,7 @@ class SingleSpotMap extends React.Component {
 
     componentDidMount() {
         this.props.fetchSpot(this.props.spotId)
+        this.MarkerManager = new MarkerManager(this.map);
     }
 
     componentDidUpdate() {
@@ -21,7 +22,6 @@ class SingleSpotMap extends React.Component {
             zoom: 13
         };
         this.map = new google.maps.Map(this.mapNode, mapOptions);
-        this.MarkerManager = new MarkerManager(this.map);
         this.MarkerManager.updateMarkers([this.props.spot]);
     }
 
