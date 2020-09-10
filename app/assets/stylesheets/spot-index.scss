@@ -15,12 +15,11 @@
     .spot-map {
         position: absolute;
         overflow:auto;
-        top: 12%;
+        top: 9.5%;
         bottom: 0;
         width:600px;
         right:0;
         height: calc(100% - 80px); // add event handler for scroll 
-
     }
 
     .spot-img {
@@ -96,6 +95,32 @@
         color: $light-grey;
         opacity: 0.98;
         font-size: 14px;
+    }
+
+
+    @media(max-width: 1250px) {
+        .spot-map {
+            position: absolute;
+            overflow:auto;
+            top: 50%;
+            bottom: 0;
+            width:100vw;
+            right:0;
+            height: calc(50%); // add event handler for scroll 
+        }
+
+        .spot-idx {
+            width: 100%;
+        }
+
+        .spot-idx-item {
+            width: 100%;
+            margin: 5px;
+        }
+
+        .spot-price {
+            margin: 5px;
+        }
     }
 
     

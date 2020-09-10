@@ -4,7 +4,7 @@ import {RECEIVE_SPOTS, RECEIVE_SPOT} from "../actions/spot_actions"
 const SpotReducer = (state = {}, action) => {
     Object.freeze(state)
     const newState = merge({}, state)
-
+    
     switch(action.type) {
         case RECEIVE_SPOTS:
             return action.spots;

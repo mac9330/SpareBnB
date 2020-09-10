@@ -9,6 +9,7 @@ export default (props) => {
     const description = spot ? spot.description : null;
     const price = spot ? spot.price : null;
     const user = spot ? spot.user : null;
+    const photos = spot ? spot.photoUrls : [];
     const owner_name = user ? user.fname : null;
     // other option -- 
     // check if props.spot exists then render null until props.spot exists  
@@ -18,32 +19,22 @@ export default (props) => {
             <h1 className="show-heading">{name}</h1>
             <br/>
             <Link to="/" className="city-link"><p>ToDo reverse geocode for city and link to city page</p></Link>
-            <div className="img-show">
-                <ul className="ul-container">
-                    <div className="flex-container-container">
-                        <div className='div-flex'>
-                            <li className="main-img">
-                                <img className="pres-image" src="https://a0.muscache.com/im/pictures/6080d6b0-1cb6-4f44-9776-1892e99c9c81.jpg?im_w=1200"/>
-                            </li>
-                        </div>
-                        <div className="div-flex2">
-                            <li className="side-img">
-                                <img src="https://a0.muscache.com/im/pictures/b66cde3a-6aa9-4fbd-a77f-3e3f84545cd8.jpg?im_w=720" />
-                            </li>
-                            <li className="side-img">
-                                <img className="top-right" src="https://a0.muscache.com/im/pictures/b66cde3a-6aa9-4fbd-a77f-3e3f84545cd8.jpg?im_w=720"/>
-                            </li>
-                            <li className="side-img">
-                                <img src="https://a0.muscache.com/im/pictures/0e493992-a094-4b6f-b5b3-ae64df2c42e5.jpg?im_w=720"/>
-                            </li>
-                            <li className="side-img">
-                                <img className="bot-right" src="https://a0.muscache.com/im/pictures/27e2a776-b085-4dfa-8ce5-f876c1e09566.jpg?im_w=720"/>
-                            </li>
-                        </div>
-                    </div>
-                </ul>
-
-
+            <div className="img-grid">
+                <div className="img pres-image">
+                    <img className="pres-image" src={`${photos[0]}`} />
+                </div>
+                <div className="img top-mid">
+                    <img className="top-mid" src={`${photos[1]}`} />
+                </div>
+                <div className="img bot-mid">
+                    <img className="bot-mid" src={`${photos[3]}`} />
+                </div>
+                <div className="img top-right">
+                    <img className="top-right" src={`${photos[2]}`} />
+                </div>
+                <div className="img bot-right">
+                    <img className="bot-right" src={`${photos[4]}`} />
+                </div>
             </div>
             <p className="spot-description">{description}</p>
             <p className="spot-price"><span className="single-spot-price">${price}</span>/ night</p>

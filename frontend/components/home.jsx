@@ -6,7 +6,6 @@ class Home extends React.Component {
 
 
     componentDidMount() {
-        debugger
         document.getElementById("header").className = "home-header"
     }
 
@@ -18,7 +17,6 @@ class Home extends React.Component {
     render() {
         return(
             <div className="locations-div">
-
                 <h3>Your next escape</h3>
                 <div className="home-locations">
                     <br/>

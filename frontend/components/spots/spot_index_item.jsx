@@ -1,10 +1,11 @@
 import React from 'react';
 import {Link} from "react-router-dom"
 // todo add amenitites
-const SpotIndexItem = ({spot}) => (
+const SpotIndexItem = ({spot}) => {
+    return(
     <li className="spot-idx-item">
         <div className="item-details">
-            <img className="spot-img" src="https://images.unsplash.com/photo-1585531455700-7af2f103924d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"/>
+                <img className="spot-img" src={`${spot.photoUrls[0]}`}/>
             <br/>
             <div className="item-info">
                 <Link to={`/spots/${spot.id}`}><h3 className="spot-name"> {spot.name}</h3></Link>
@@ -15,13 +16,14 @@ const SpotIndexItem = ({spot}) => (
                 <br/>
                 <div className="spot-price-con">
                     <div></div>
-                    <p className="spot-price"><span>{spot.price}</span> / night</p>
+                        <p className="spot-price"><span>{spot.price}</span> / night &emsp;</p>
                 </div>
             <hr className="hr-fix" />
             </div>
         </div>
         
     </li>
-)
+    )
+}
 
 export default SpotIndexItem;

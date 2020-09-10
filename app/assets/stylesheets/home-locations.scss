@@ -103,6 +103,12 @@
 
 }
 
+@media(max-width: 1000px) {
+    .home-locations {
+        flex-direction: column;
+    }
+}
+
 .box-1 {
     flex:1;
 }

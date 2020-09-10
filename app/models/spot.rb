@@ -22,7 +22,7 @@ class Spot < ApplicationRecord
 
     belongs_to :user
 
-    has_many_attached :photo
+    has_many_attached :photos
 
     def self.in_bounds(bounds)
         self
