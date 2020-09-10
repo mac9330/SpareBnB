@@ -69,24 +69,28 @@
     }
 
 
+    .img:hover img {
+        opacity: 0.8;
+    }
 
     
     
     .spot-description {
-        color: rgb(34, 34, 34);
+        color: #222222;
         font-family: $fontbnb;
         font-weight: 400;
-        font-size: 16px;
-        line-height: 24px;
+        font-size: 20px;
+        line-height: 30px;
         word-break: break-word;
         margin-bottom: 20px;
+        width: 65%;
     }
 
     
     .spot-price {
         color: rgb(34, 34, 34);
         font-weight: 400;
-        font-size: 18px;
+        font-size: 24px;
         line-height: 24px;
         padding-bottom: 25px;
     }

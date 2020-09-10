@@ -1,5 +1,6 @@
 import React from "react"
 import { connect } from "react-redux";
+import {Link} from "react-router-dom"
 import {logout} from "../../actions/session_actions" 
 
 class UserDropdown extends React.Component {
@@ -36,7 +37,7 @@ class UserDropdown extends React.Component {
     showDropdown() {
         return (
             <div className="auth-dropdown">
-
+                <Link to="/spots/new" className="dropdown-btn" >Host your home</Link>
                 <button className="dropdown-btn" onClick={this.logoutForm}>Log Out </button>
             </div>
         )

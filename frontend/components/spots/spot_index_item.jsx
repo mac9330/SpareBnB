@@ -5,7 +5,7 @@ const SpotIndexItem = ({spot}) => {
     return(
     <li className="spot-idx-item">
         <div className="item-details">
-                <img className="spot-img" src={`${spot.photoUrls[0]}`}/>
+                <Link to={`/spots/${spot.id}`}><img className="spot-img" src={`${spot.photoUrls[0]}`} /></Link>
             <br/>
             <div className="item-info">
                 <Link to={`/spots/${spot.id}`}><h3 className="spot-name"> {spot.name}</h3></Link>
@@ -15,7 +15,6 @@ const SpotIndexItem = ({spot}) => {
                 <p className="idx-amenities">Wifi <span>&#183;</span> Air Conditioning <span>&#183;</span> Pool <span>&#183;</span> Grill <span>&#183;</span> Outdoor Shower</p> 
                 <br/>
                 <div className="spot-price-con">
-                    <div></div>
                         <p className="spot-price"><span>{spot.price}</span> / night &emsp;</p>
                 </div>
             <hr className="hr-fix" />

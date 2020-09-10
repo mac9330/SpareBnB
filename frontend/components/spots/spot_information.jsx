@@ -36,7 +36,8 @@ export default (props) => {
                     <img className="bot-right" src={`${photos[4]}`} />
                 </div>
             </div>
-            <p className="spot-description">{description}</p>
+            <p className="spot-description"> <hr className="hr-fix"/>{description}</p>
+
             <p className="spot-price"><span className="single-spot-price">${price}</span>/ night</p>
             <p>{owner_name}</p>
         </div>

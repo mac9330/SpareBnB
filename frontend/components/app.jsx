@@ -7,6 +7,8 @@ import SpotCreateFormContainer from "./spots/spot_create_form_container"
 import Home from "./home"
 import Footer from "./footer"
 
+import ProtectedRoute from '../util/route_util';
+
 
 
 
@@ -23,7 +25,7 @@ export default () => (
         <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/spots" component={SpotSearchContainer} />
-            <Route exact path="/spots/new" component={SpotCreateFormContainer} />
+            <ProtectedRoute exact path="/spots/new" component={SpotCreateFormContainer} />
             <Route path="/spots/:spotId" component={SpotShowContainer} />
             <Route component={NotFoundContainer} />
         </Switch>
