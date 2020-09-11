@@ -1,5 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+// const reverse = require("reverse-geocode");
+import reverse from 'reverse-geocode'
+
 
 
 
@@ -10,14 +13,27 @@ import {Link} from 'react-router-dom'
         super(props) 
         this.state = {
             address: "",
+            index: "/",
         }
     }
 
+    componentDidUpdate() {
+        if (this.state.address === "" && this.props.spot.latitude) {
+            const location = reverse.lookup(this.props.spot.latitude, this.props.spot.longitude, "us")
+            this.setState({
+              address: `${location.city}, ${location.state}`,
+              index: `/spots?lat=${this.props.spot.latitude}.730610&lng=${this.props.spot.longitude}`,
+            });
+        }
+    }
 
     render() {
         const spot = this.props ? this.props.spot : null;
         const name = spot ? spot.name : null;
         const description = spot ? spot.description : null;
+        const latitude = spot ? spot.latitude : null;
+        const longitude = spot ? spot.longitude : null;
+
         const price = spot ? spot.price : null;
         const user = spot ? spot.user : null;
         const photos = spot ? spot.photoUrls : [];
@@ -26,7 +42,7 @@ import {Link} from 'react-router-dom'
             <div>
                 <h1 className="show-heading">{name}</h1>
                 <br/>
-                <Link to="/" className="city-link"><p>{this.state.address}</p></Link>
+                 <Link to={this.state.index} className="city-link"><p>{this.state.address}</p></Link>
                 <div className="img-grid">
                     <div className="img pres-image">
                         <img className="pres-image" src={`${photos[0]}`} />
