@@ -7,7 +7,6 @@ export default (state = {}, action) => {
 
     switch (action.type) {
         case RECEIVE_ADDRESS:
-            debugger;
             return merge(newState, action.address)
         default:
             return state;

@@ -3,8 +3,6 @@ import MarkerManager from "../../util/marker_manager"
 import {withRouter} from 'react-router-dom'
 
 
-// todo maps api does not work heroku
-
 class SpotMap extends React.Component {
     
     componentDidMount() {
@@ -24,15 +22,8 @@ class SpotMap extends React.Component {
     }
 
     componentWillUnmount() {
-        document.getElementById("footer").className = "footer" // dont look here cathy just my site
+        document.getElementById("footer").className = "footer"
     }
-
-    // _handleClick(coords) {
-    //     this.props.history.push({
-    //         pathname: "benches/new",
-    //         search: `lat=${coords.lat}&lng=${coords.lng}`
-    //     });
-    // };
 
 
 
