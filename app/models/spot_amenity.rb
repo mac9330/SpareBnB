@@ -1,0 +1,2 @@
+class SpotAmenity < ApplicationRecord
+end
