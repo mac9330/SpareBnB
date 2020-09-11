@@ -8,21 +8,29 @@ import { withRouter } from 'react-router-dom'
 
 class SingleSpotMap extends React.Component {
 
-    componentDidMount() {
+    constructor(props) {
+        super(props)
         this.props.fetchSpot(this.props.spotId)
-        this.MarkerManager = new MarkerManager(this.map);
+    }
+
+    componentDidMount() {
+    
     }
 
     componentDidUpdate() {
-        const mapOptions = {
-            center: {
-                lat: this.props.spot.latitude,
-                lng: this.props.spot.longitude
-            }, // San Francisco coords
-            zoom: 13
-        };
-        this.map = new google.maps.Map(this.mapNode, mapOptions);
-        this.MarkerManager.updateMarkers([this.props.spot]);
+        if (this.props.spot) {
+            const mapOptions = {
+                center: {
+                    lat: this.props.spot.latitude,
+                    lng: this.props.spot.longitude
+                },
+                zoom: 13
+            };
+            this.map = new google.maps.Map(this.mapNode, mapOptions);
+            this.MarkerManager = new MarkerManager(this.map);
+            this.MarkerManager.createSingleMarker(this.props.spot)
+        }
+
     }
 
 
