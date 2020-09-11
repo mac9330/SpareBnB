@@ -14,7 +14,6 @@ class SingleSpotMap extends React.Component {
     }
 
     componentDidMount() {
-    
     }
 
     componentDidUpdate() {

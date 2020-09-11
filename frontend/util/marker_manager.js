@@ -62,7 +62,6 @@ class MarkerManager {
       }
 
         attachInfo(marker, spot) {
-            debugger
             const infowindow = new google.maps.InfoWindow({
               content: spot.name
             }); 

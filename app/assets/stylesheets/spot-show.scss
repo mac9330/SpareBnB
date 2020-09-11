@@ -86,7 +86,10 @@
         width: 65%;
     }
 
-    
+    .spot-map {
+        width: 90vw;
+        height: 80vh;
+    }
     .spot-price {
         color: rgb(34, 34, 34);
         font-weight: 400;
@@ -100,11 +103,6 @@
     }
 }
 
-.map,
-.spot-map {
-    width: 1200px;
-    height: 500px;
-}
 
 
 
