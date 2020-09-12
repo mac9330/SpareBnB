@@ -31,6 +31,7 @@ class SpotCreateForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault;
     this.props.postSpot(this.state).then((action) => {
+      debugger
       return this.props.history.push(`/spots/${action.spot.id}`);
     });
   }
@@ -55,6 +56,10 @@ class SpotCreateForm extends React.Component {
           longitude: res.lng,
         })
       );
+  }
+
+  handleChange(address) {
+    this.setState({ address });
   }
 
   render() {
@@ -164,7 +169,7 @@ class SpotCreateForm extends React.Component {
                         backgroundColor: suggestion.active ? "#41b6e6" : "#fff",
                         width: "80%",
                         margin: "0 0 0 7%",
-                        padding: "3% 5%"
+                        padding: "3% 5%",
                       };
 
                       return (

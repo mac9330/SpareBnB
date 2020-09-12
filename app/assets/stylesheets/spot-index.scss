@@ -126,6 +126,8 @@
         }
     }
 
+
+
     
 
 }
@@ -136,6 +138,22 @@
     
      border-bottom: 1px solid #848484;
 
+}
+
+.search {
+    position: absolute;
+    z-index: 99999;
+    width: 30%;
+    height: 50px;
+    top: 20px;
+    left: calc(65vw - 30%)
+}
+
+.idx-empty {
+    margin: 20px;
+    font: $fontbnb;
+    font-size: 24px;
+    font-weight: bolder;
 }
 
 

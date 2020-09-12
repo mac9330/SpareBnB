@@ -38,6 +38,7 @@ class UserDropdown extends React.Component {
         return (
             <div className="auth-dropdown">
                 <Link to="/spots/new" className="dropdown-btn" >Host your home</Link>
+                <Link to="/spots/new" className="dropdown-btn" >Trips</Link>
                 <button className="dropdown-btn" onClick={this.logoutForm}>Log Out </button>
             </div>
         )

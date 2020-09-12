@@ -4,14 +4,17 @@ import SpotIndexItem from "./spot_index_item"
 
 
 
-const SpotIndex = ({spots}) => {
+const SpotIndex = (props) => {
 
-    return(
+    return props.spots.length === 0 ?  <div className="idx-empty">Sorry, there are currently no Listings Available in this area</div> : (
+        <div>
         <ul className="spot-idx">
             {
-                spots.map(spot => (<SpotIndexItem className="spot-index-item" spot={spot} key={spot.id}/>))
+                props.spots.map(spot => (<SpotIndexItem className="spot-index-item" spot={spot} key={spot.id}/>))
+                
             }
         </ul>
+    </div>
     ) 
 
 }

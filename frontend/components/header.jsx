@@ -6,12 +6,13 @@ class Header extends React.Component {
 
 
     homeAside() {
-        return this.props.match.isExact ? <aside className="covid-banner"><a href={`https://www.airbnb.com/covid-traveler`}>Get the latest on our COVID-19 response</a></aside> : null
+        return <aside className="covid-banner"><a href={`https://www.airbnb.com/covid-traveler`}>Get the latest on our COVID-19 response</a></aside>
     }
 
 render () {
     return(
         <div>
+                {this.homeAside()}
             <header id="header" className="header">
                 <Modal className="modal" />
                 <GreetingContainer />
