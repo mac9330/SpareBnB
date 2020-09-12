@@ -1,5 +1,5 @@
 class Reservation < ApplicationRecord
-    validates :user_id, :spot_id, :check_in, :check_out, :num_guests
+    validates :user_id, :spot_id, :check_in, :check_out, :num_guests, presence: true
 
     belongs_to :user 
     belongs_to :spot 
