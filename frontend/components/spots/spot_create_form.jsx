@@ -67,72 +67,85 @@ class SpotCreateForm extends React.Component {
       num_bedrooms,
       num_bathrooms,
       address,
-      latitude,
-      longitude,
+      img,
     } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name
-          <input type="text" value={name} onChange={this.update("name")} />
-        </label>
+      <div className="spot-form-container">
+        <div className="background-img">
+          {" "}
+          <img src="https://images.unsplash.com/photo-1546614409-810f10108b74?ixlib=rb-1.2.1&auto=format&fit=crop&w=1791&q=80" />
+        </div>
+        <form className="spot-form" onSubmit={this.handleSubmit}>
+          <label>
+            Name
+            <input type="text" value={name} onChange={this.update("name")} />
+          </label>
 
-        <label>
-          Description
-          <input
-            type="text"
-            value={description}
-            onChange={this.update("description")}
-          />
-        </label>
-
-        <label>
-          Number of Bedrooms
-          <input type="number" value={price} onChange={this.update("price")} />
-        </label>
-
-        <label>
-          Number of Bedrooms
-          <input
-            type="number"
-            value={max_occupancy}
-            onChange={this.update("max_occupancy")}
-          />
-        </label>
-
-        <label>
-          Number of Bedrooms
-          <input
-            type="number"
-            value={num_bedrooms}
-            onChange={this.update("num_bedrooms")}
-          />
-        </label>
-
-        <label>
-          Number of Beds
-          <input
-            type="number"
-            value={num_beds}
-            onChange={this.update("num_beds")}
-          />
-        </label>
-
-        <label>
-          Number of Bathrooms
-          <input
-            type="number"
-            value={num_bathrooms}
-            onChange={this.update("num_bathrooms")}
-          />
-        </label>
-
-        <label>
-          Address
+          <label>
+            Description
+            <input
+              type="text"
+              value={description}
+              onChange={this.update("description")}
+            />
+          </label>
+          <div className="grid">
+            <div className="grid-1">
+              <label>
+                Price
+                <input
+                  type="number"
+                  value={price}
+                  onChange={this.update("price")}
+                />
+              </label>
+            </div>
+            <div className="grid-2">
+              <label>
+                Number of Guests
+                <input
+                  type="number"
+                  value={max_occupancy}
+                  onChange={this.update("max_occupancy")}
+                />
+              </label>
+            </div>
+            <div className="grid-3">
+              <label>
+                Bedrooms
+                <input
+                  type="number"
+                  value={num_bedrooms}
+                  onChange={this.update("num_bedrooms")}
+                />
+              </label>
+            </div>
+            <div className="grid-4">
+              <label>
+                Beds
+                <input
+                  type="number"
+                  value={num_beds}
+                  onChange={this.update("num_beds")}
+                />
+              </label>
+            </div>
+            <div className="grid-5">
+              <label>
+                Bathrooms
+                <input
+                  type="number"
+                  value={num_bathrooms}
+                  onChange={this.update("num_bathrooms")}
+                />
+              </label>
+            </div>
+          </div>
           <PlacesAutoComplete
             value={address}
             onChange={this.handleChange}
             onSelect={this.handleSelect}
+            className="auto-complete"
           >
             {({
               getInputProps,
@@ -140,7 +153,7 @@ class SpotCreateForm extends React.Component {
               getSuggestionItemProps,
               loading,
             }) => (
-              <div>
+              <div className="auto-complete">
                 <input {...getInputProps({ placeholder: "Enter Address" })} />
 
                 <div>
@@ -149,6 +162,9 @@ class SpotCreateForm extends React.Component {
                     {suggestions.map((suggestion, i) => {
                       const style = {
                         backgroundColor: suggestion.active ? "#41b6e6" : "#fff",
+                        width: "80%",
+                        margin: "0 0 0 7%",
+                        padding: "3% 5%"
                       };
 
                       return (
@@ -165,12 +181,14 @@ class SpotCreateForm extends React.Component {
               </div>
             )}
           </PlacesAutoComplete>
-        </label>
-        <br />
-        <input type="submit" value="List Location" />
-      </form>
+          <br />
+          <input type="submit" value="List Location" />
+        </form>
+      </div>
     );
   }
 }
 
 export default SpotCreateForm;
+
+
