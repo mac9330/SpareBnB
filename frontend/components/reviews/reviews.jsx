@@ -7,12 +7,18 @@ class Reviews extends React.Component {
     this.state = {
       user_id: this.props.currentUser,
       spot_id: this.props.spotId,
-      rating: 0,
+      rating: "You must select a Rating",
       description: "",
+      reviews: Object.values(this.props.reviews)
     };
 
     this.handleSubmit = this.handleSubmit.bind(this)
     this.update = this.update.bind(this)
+  }
+
+  componentDidUpdate() {
+    debugger
+    this.props.spot && this.state.reviews.length === 0 ? this.setState({reviews: Object.values(this.props.reviews)}) : null;
   }
 
   update(field) {
@@ -26,15 +32,17 @@ class Reviews extends React.Component {
     review.spot_id = parseInt(review.spot_id);
     review.user_id = parseInt(review.user_id)
     this.props.postReview(review);
+    this.setState({reviews: this.state.reviews.concat(review)})
   }
 
   render() {
-    const reviews = this.props.reviews ? this.props.reviews : {};
+    const reviews = this.state.reviews ? this.state.reviews : {};
     const users = this.props.users ? this.props.users : {};
     return (
       <div>
+        {this.props.spot?.name}
         <ul>
-          {Object.values(reviews).map((review, idx) => {
+          {reviews.map((review, idx) => {
             return <li key={idx}>
               <p>{users[review?.user_id]?.fname}</p>
               <p>{review?.rating}</p>
@@ -47,12 +55,12 @@ class Reviews extends React.Component {
           <label>
             Rating
             <select onChange={this.update("rating")} value={this.state.rating} name="rating">
-              <option disabled value="">Please Select an Option</option>
+              <option value="">Please Select an Option</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>
-              <option defaultValue value="5">5</option>
+              <option value="5">5</option>
             </select>
           </label>
           <br />

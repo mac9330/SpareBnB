@@ -9,7 +9,6 @@ const receiveSpots = (spots) => ({
     spots
 })
 const receiveSpot = (payload) => {
-    debugger
     return {
     type: RECEIVE_SPOT,
     spot: payload.spot, 

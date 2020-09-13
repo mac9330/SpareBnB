@@ -10,7 +10,6 @@ const SpotShow = ({ spot, spotId, fetchSpot, fetchAddress, address, postReview, 
           <div className="spot-show">
             <SpotInformation
               spot={spot}
-              fetchSpot={fetchSpot}
               address={address}
               users={users}
               spotId={spotId}

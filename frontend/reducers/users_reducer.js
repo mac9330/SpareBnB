@@ -13,7 +13,6 @@ const UsersReducer = (state = {}, action) => {
             return merge({[user.id]: user}, state );
         case RECEIVE_SPOT:
             let {users} = action;
-            debugger
             return merge(newState, users, action.user);
         default: 
             return state;

@@ -12,9 +12,3 @@ const receiveReview = (reviews) => ({
 export const postReview = (review) => dispatch => {
     return ReviewAPIUtil.postReview(review).then(review => dispatch(receiveReview(review)))
 }
-
-
-// export const fetchReviews = (reviews) => dispatch => {
-//     return ReviewAPIUtil.fetchReviews(reviews)
-//         .then(reviews => (dispatch(receiveReviews(reviews))))
-// };
