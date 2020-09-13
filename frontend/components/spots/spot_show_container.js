@@ -1,7 +1,7 @@
 import {connect} from "react-redux"
 import SpotShow from "./spot_show"
 import {fetchSpot} from "../../actions/spot_actions"
-import {postReview } from "../../actions/review_actions";
+import {postReview} from "../../actions/review_actions";
 
 
 const msp = (state, oP) => {
@@ -10,8 +10,8 @@ const msp = (state, oP) => {
         spotId: oP.match.params.spotId,
         reviews: state.entities.reviews,
         currentUser: state.entities.users[state.session.id],
-        owner: state.entities.spots.user,
-        reviews: state.entities.spots.reviews,
+        reviews: state.entities.reviews,
+        users: state.entities.users,
     }
 };
 

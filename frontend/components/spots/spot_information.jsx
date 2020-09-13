@@ -29,7 +29,7 @@ import reverse from 'reverse-geocode'
 
     render() {
         const spot = this.props.spot ? this.props.spot : null;
-        const owner = this.props.owner ? this.props.owner : null;
+        const owner = this.props.users ? this.props.users[this.props.spotId] : null;
         const owner_name = owner ? `${owner.fname} ${owner.lname}` : null;
         const name = spot ? spot.name : null;
         const description = spot ? spot.description : null;

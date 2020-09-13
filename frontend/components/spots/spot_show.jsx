@@ -4,7 +4,7 @@ import SingleSpotMap from "./single_spot_map"
 import Reviews from "../reviews/reviews"
 
 
-const SpotShow = ({ spot, spotId, fetchSpot, fetchAddress, address, postReview, currentUser, owner, reviews }) => {
+const SpotShow = ({ spot, spotId, fetchSpot, fetchAddress, address, postReview, currentUser, reviews, users }) => {
         
         return (
           <div className="spot-show">
@@ -12,9 +12,10 @@ const SpotShow = ({ spot, spotId, fetchSpot, fetchAddress, address, postReview, 
               spot={spot}
               fetchSpot={fetchSpot}
               address={address}
-              owner={owner}
+              users={users}
+              spotId={spotId}
             />
-            <Reviews spot={spot} spotId={spotId} postReview={postReview} currentUser={currentUser} reviews={reviews} />
+            <Reviews spot={spot} spotId={spotId} postReview={postReview} currentUser={currentUser} reviews={reviews} users={users} />
             <SingleSpotMap
               spotId={spotId}
               fetchSpot={fetchSpot}

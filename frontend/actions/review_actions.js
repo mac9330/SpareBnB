@@ -1,15 +1,16 @@
 import * as ReviewAPIUtil from '../util/review_api_util'
 
 
-export const RECEIVE_REVIEWS = "RECEIVE_REVIEWS"
+export const RECEIVE_REVIEW = "RECEIVE_REVIEW"
 
-const receiveReviews = (reviews) => ({
-    type: RECEIVE_REVIEWS,
+const receiveReview = (reviews) => ({
+    type: RECEIVE_REVIEW,
     reviews
 })
 
+
 export const postReview = (review) => dispatch => {
-    return ReviewAPIUtil.postReview(review).then(review => dispatch(receiveReviews(review)))
+    return ReviewAPIUtil.postReview(review).then(review => dispatch(receiveReview(review)))
 }
 
 

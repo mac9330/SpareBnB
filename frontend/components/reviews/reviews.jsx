@@ -30,14 +30,15 @@ class Reviews extends React.Component {
 
   render() {
     const reviews = this.props.reviews ? this.props.reviews : {};
-    debugger;
+    const users = this.props.users ? this.props.users : {};
     return (
       <div>
         <ul>
           {Object.values(reviews).map((review, idx) => {
             return <li key={idx}>
-              {review.rating}
-              <p>{review.description}</p>
+              <p>{users[review?.user_id]?.fname}</p>
+              <p>{review?.rating}</p>
+              <p>{review?.description}</p>
             </li>;
           })}
         </ul>

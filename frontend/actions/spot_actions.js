@@ -8,12 +8,15 @@ const receiveSpots = (spots) => ({
     type: RECEIVE_SPOTS,
     spots
 })
-const receiveSpot = ({spot, user, reviews}) => ({ // todo add to users reducer
+const receiveSpot = (payload) => {
+    debugger
+    return {
     type: RECEIVE_SPOT,
-    spot, 
-    user,
-    reviews,
-})
+    spot: payload.spot, 
+    users: payload.users,
+    user: payload.user,
+    reviews: payload.reviews,
+}}
 
 
 
