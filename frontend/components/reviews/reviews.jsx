@@ -9,7 +9,8 @@ class Reviews extends React.Component {
       spot_id: this.props.spotId,
       rating: "You must select a Rating",
       description: "",
-      reviews: Object.values(this.props.reviews)
+      reviews: Object.values(this.props.reviews),
+      fetchedSpot: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -18,7 +19,9 @@ class Reviews extends React.Component {
 
   componentDidUpdate() {
     debugger
-    this.props.spot && this.state.reviews.length === 0 ? this.setState({reviews: Object.values(this.props.reviews)}) : null;
+    if (this.props.spot && this.state.reviews.length === 0 && this.state.fetchedSpot) {
+      this.setState({reviews: Object.values(this.props.reviews)});
+    }
   }
 
   update(field) {
