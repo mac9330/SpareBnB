@@ -43,7 +43,6 @@ class Reviews extends React.Component {
     const users = this.props.users ? this.props.users : {};
     return (
       <div>
-        {this.props.spot?.name}
         <ul>
           {reviews.map((review, idx) => {
             return <li key={idx}>
