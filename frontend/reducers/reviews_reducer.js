@@ -8,7 +8,7 @@ const ReviewsReducer = (state = {}, action) => {
     switch (action.type) {
         case RECEIVE_SPOT: 
             const {reviews} = action;
-            return reviews;
+            return merge({}, reviews);
         case RECEIVE_REVIEW: 
             const {review} = action;
             return merge(newState, review)
