@@ -38,6 +38,38 @@ class Reviews extends React.Component {
     this.setState({reviews: this.state.reviews.concat(review)})
   }
 
+  renderForm() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Rating
+          <select
+            onChange={this.update("rating")}
+            value={this.state.rating}
+            name="rating"
+          >
+            <option value="">Please Select an Option</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </label>
+        <br />
+        <label>
+          Description
+          <textarea
+            value={this.state.description}
+            onChange={this.update("description")}
+          ></textarea>
+        </label>
+        <br />
+        <input type="submit" value="Submit Review" />
+      </form>
+    );
+  }
+
   render() {
     const reviews = this.state.reviews ? this.state.reviews : {};
     const users = this.props.users ? this.props.users : {};
@@ -53,29 +85,7 @@ class Reviews extends React.Component {
           })}
         </ul>
 
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Rating
-            <select onChange={this.update("rating")} value={this.state.rating} name="rating">
-              <option value="">Please Select an Option</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-          </label>
-          <br />
-          <label>
-            Description
-            <textarea
-              value={this.state.description}
-              onChange={this.update("description")}
-            ></textarea>
-          </label>
-          <br />
-          <input type="submit" value="Submit Review" />
-        </form>
+          {this.renderForm()}
       </div>
     );
   }

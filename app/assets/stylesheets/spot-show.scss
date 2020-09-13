@@ -101,6 +101,18 @@
     .single-spot-price {
         font-weight: 600;
     }
+
+    @media(max-width: 750px) {
+        .img-grid{
+            max-height: 250px;
+        } 
+    }
+
+    @media(max-width: 510px) {
+        .img-grid{
+            max-height: 175px;
+        }
+    }
 }
 
 
