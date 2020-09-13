@@ -19,6 +19,10 @@ class User < ApplicationRecord
 
     has_many :spots
 
+    has_many :reviews
+
+    has_many :reservations
+
 
     attr_reader :password
 

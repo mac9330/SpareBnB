@@ -8,10 +8,11 @@ const receiveSpots = (spots) => ({
     type: RECEIVE_SPOTS,
     spots
 })
-const receiveSpot = ({spot, user}) => ({ // todo add to users reducer
+const receiveSpot = ({spot, user, reviews}) => ({ // todo add to users reducer
     type: RECEIVE_SPOT,
-    spot: spot, 
-    user: user
+    spot, 
+    user,
+    reviews,
 })
 
 
@@ -30,12 +31,5 @@ export const fetchSpots = (filters) => dispatch => {
 
 export const fetchSpot = (spotId) => dispatch => ( 
     SpotAPIUtil.fetchSpot(spotId)
-        .then(payload => dispatch(receiveSpot(payload))) //return spot and user // payload 
+        .then(payload => dispatch(receiveSpot(payload)))
 )
-
-
-export const fetchBenches = filters => dispatch => (
-    APIUtil.fetchBenches(filters)
-        .then(benches => dispatch(receiveBenches(benches)
-    ))
-);

@@ -31,7 +31,6 @@ class SpotCreateForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault;
     this.props.postSpot(this.state).then((action) => {
-      debugger
       return this.props.history.push(`/spots/${action.spot.id}`);
     });
   }

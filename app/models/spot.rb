@@ -19,8 +19,11 @@
 class Spot < ApplicationRecord
     validates :user_id, :name, :description, :price, :num_beds, :num_bedrooms, :num_bathrooms, :max_occupancy, :longitude, :latitude, presence: true
     
-
     belongs_to :user
+
+    has_many :reviews 
+
+    has_many :reservations
 
     has_many_attached :photos
 
@@ -31,4 +34,9 @@ class Spot < ApplicationRecord
             .where("longitude < ?", bounds[:northEast][:lng])
             .where("longitude > ?", bounds[:southWest][:lng])
     end
+
+    def average_rating
+        reviews.average(:rating)
+    end
+
 end
