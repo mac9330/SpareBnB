@@ -9,21 +9,19 @@ class Reviews extends React.Component {
 
     this.state = {
       spot_id: this.props.spotId,
-      user_id: this.props.currentUser.id,
+      user_id: this.props.currentUser?.id,
       rating: "You must select a Rating",
       description: "",
       reviews: Object.values(this.props.reviews),
       readMore: false,
     };
-
+    this.props.clearReviewErrors();
     this.handleSubmit = this.handleSubmit.bind(this)
     this.update = this.update.bind(this)
     this.readMore = this.readMore.bind(this)
     this.description = this.description.bind(this)
   }
 
-  componentDidMount() {
-  }
 
   componentDidUpdate() {
     if (this.props.spot && this.state.reviews.length === 0 && Object.values(this.props.reviews).length  !== 0) {
@@ -190,9 +188,7 @@ class Reviews extends React.Component {
               {averageRating} ({reviews?.length} reviews)
             </h2>
             <hr className="hr-fix" />
-            <ul>
-              {this.reviews()}
-            </ul>
+            <ul>{this.reviews()}</ul>
 
             {this.renderForm()}
           </div>
@@ -201,6 +197,10 @@ class Reviews extends React.Component {
           <Reservation
             postReservation={this.props.postReservation}
             spotId={this.props.spotId}
+            currentUser={this.props.currentUser}
+            openModal={this.props.openModal}
+            errors={this.props.errors}
+            clearReservationErrors={this.props.clearReservationErrors}
           />
         </div>
       </div>

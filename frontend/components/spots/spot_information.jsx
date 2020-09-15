@@ -18,8 +18,8 @@ import reverse from 'reverse-geocode'
     }
 
     componentDidUpdate() {
-        if (this.state.address === "" && this.props.spot.latitude) {
-            const location = reverse.lookup(this.props.spot.latitude, this.props.spot.longitude, "us")
+        if (this.state.address === "" && this.props.spot?.latitude) {
+            const location = reverse.lookup(this.props.spot?.latitude, this.props.spot?.longitude, "us")
             this.setState({
               address: `${location.city}, ${location.state}`,
               index: `/spots?lat=${this.props.spot.latitude}.730610&lng=${this.props.spot.longitude}`,
