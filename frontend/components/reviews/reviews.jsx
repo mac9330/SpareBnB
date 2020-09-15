@@ -1,13 +1,13 @@
 import React from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar} from "@fortawesome/free-solid-svg-icons"
+import Reservation from "../reservations/reservation"
 
 class Reviews extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      user_id: this.props.currentUser,
       spot_id: this.props.spotId,
       rating: "You must select a Rating",
       description: "",
@@ -22,7 +22,6 @@ class Reviews extends React.Component {
   }
 
   componentDidUpdate() {
-    debugger
     if (this.props.spot && this.state.reviews.length === 0 && Object.values(this.props.reviews).length  !== 0) {
       this.setState({reviews: Object.values(this.props.reviews)});
     }
@@ -117,49 +116,54 @@ class Reviews extends React.Component {
     const users = this.props.users ? this.props.users : {};
     const owner = this.props.users ? this.props.users[this.props.spot?.user_id] : null;
     const averageRating = this.props?.spot?.average_rating?.slice(0, 4)
-    debugger
     return (
-      <div className="spot-description">
-        <hr className="hr-fix" />
-        <p>
-          {owner?.fname} {owner?.lname} owns this property
-        </p>
-        <hr className="hr-fix" />
-        <p className="">{this.description()}</p>
-        {this.props?.spot?.description.length > 400 && !this.state.readMore ? (
-          <>
-            {" "}
-            <span className="dots">...</span>
-            <a onClick={this.readMore}>read more</a>{" "}
-          </>
-        ) : null}
-        <div>
+      <div className="flex-col">
+        <div className="spot-description">
           <hr className="hr-fix" />
-          <h2 className="average-rating">
-            <FontAwesomeIcon className="fa-star" icon={faStar} />{" "}
-            {averageRating} ({reviews?.length} reviews)
-          </h2>
+          <p>
+            {owner?.fname} {owner?.lname} owns this property
+          </p>
           <hr className="hr-fix" />
-          <ul>
-            {reviews.map((review, idx) => {
-              return review.description ? (
-                <li key={idx}>
-                  <p className="review-name">
-                    {users[review?.user_id]?.fname}{" "}
-                    {users[review?.user_id]?.lname}
-                  </p>
-                  <p className="review-date">
-                    {this.getDate(review.created_at)}
-                  </p>
-                  <p className="review-description">{review?.description}</p>
-                  <hr className="hr-fix" />
-                </li>
-              ) : null;
-            })}
-          </ul>
+          <p className="">{this.description()}</p>
+          {this.props?.spot?.description.length > 400 &&
+          !this.state.readMore ? (
+            <>
+              {" "}
+              <span className="dots">...</span>
+              <a onClick={this.readMore}>read more</a>{" "}
+            </>
+          ) : null}
+          <div>
+            <hr className="hr-fix" />
+            <h2 className="average-rating">
+              <FontAwesomeIcon className="fa-star" icon={faStar} />{" "}
+              {averageRating} ({reviews?.length} reviews)
+            </h2>
+            <hr className="hr-fix" />
+            <ul>
+              {reviews.map((review, idx) => {
+                return review.description ? (
+                  <li key={idx}>
+                    <p className="review-name">
+                      {users[review?.user_id]?.fname}{" "}
+                      {users[review?.user_id]?.lname}
+                    </p>
+                    <p className="review-date">
+                      {this.getDate(review.created_at)}
+                    </p>
+                    <p className="review-description">{review?.description}</p>
+                    <hr className="hr-fix" />
+                  </li>
+                ) : null;
+              })}
+            </ul>
 
-          {this.renderForm()}
+            {this.renderForm()}
+          </div>
         </div>
+          <div>
+            <Reservation spotId={this.props.spotId} />
+          </div>
       </div>
     );
   }

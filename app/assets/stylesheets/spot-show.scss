@@ -21,6 +21,7 @@
         max-height: 400px;
         width: auto;
         margin: 5% 0;
+        padding-bottom: 5%;
     }
 
     .pres-image {
@@ -73,7 +74,10 @@
         opacity: 0.8;
     }
 
-    
+    .flex-col {
+        display: flex;
+        width: 100%;
+    }
     
     .spot-description {
         color: #222222;
@@ -83,7 +87,7 @@
         line-height: 30px;
         word-break: break-word;
         margin-bottom: 20px;
-        width: 65%;
+        width: 100%;
         a {
             color: rgb(34, 34, 34);
             text-decoration: underline;
@@ -91,6 +95,62 @@
             font-weight: 600;
 
         }
+        display: flex;
+        flex-direction: column;
+    }
+
+    .bookings {
+        max-width: 80%;
+        position: sticky;
+        top: 30vh;
+        margin-top: 10%;
+        margin-bottom: 10%;
+        margin-left: 3%;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+        padding: 10%;
+        justify-content: center;
+        border-radius: 10px;
+        .date-labels {
+            display: flex;
+            justify-content: space-around;
+        }
+        input[type=date] {
+            border: 1px solid black;
+            padding: 2%;
+            border-radius: 10px;
+            width: 100%;
+            font-weight: 100;
+        }
+
+        label {
+            font-weight: 600;
+            font-size: larger;
+        }
+
+        input[type=submit] {
+            width: 90%;
+        }
+
+    }
+
+    .num-guests {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+        label {
+            text-align: center;
+        }
+
+        input[type=number] {
+            width: 95%;
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 5% 2%;
+            margin-bottom: 1%;
+        }
+
     }
 
     .spot-map {
@@ -149,6 +209,7 @@
         border-radius: 10px;
         padding: 20px;
         min-width: 40%;
+        margin-bottom: 10px;
         label {
             font-size: 18px;
             font-weight: 600;
@@ -177,6 +238,9 @@
         .img-grid{
             max-height: 250px;
         } 
+        .flex-col {
+            flex-direction: column;
+        }
     }
 
     @media(max-width: 510px) {
