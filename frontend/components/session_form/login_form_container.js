@@ -8,17 +8,14 @@ import {openModal, closeModal} from '../../actions/modal_actions';
 const msp = (state, oP) => ({
     errors: state.errors,
     formType: "Login",
-    className: "login"
-
+    className: "login",
 })
 
 const mdp = (dispatch) => ({
     action: (currentUser) => dispatch(login(currentUser)),
     otherForm: () => dispatch(openModal('Sign Up')),
     closeModal: () => dispatch(closeModal()),
-    clearErrors: () => dispatch(clearErrors())
-
-
+    clearErrors: () => dispatch(clearErrors()),
 })
 
 export default connect(msp, mdp)(SessionForm)

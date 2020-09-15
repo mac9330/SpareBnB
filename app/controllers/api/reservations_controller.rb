@@ -4,16 +4,18 @@ class Api::ReservationsController < ApplicationController
         @reservation = Reservation.new(reservation_params)
         @reservation.user_id = current_user.id 
         if @reservation.overlapping_reservations && @reservation.save
-            render :show
+            @reservations = current_user.reservations.push(@reservation)
+            render :index
         else  
-            render json: @reservations.errors.full_messages, status: 400
+            render json: @reservation.errors.full_messages, status: 422
         end
     end 
 
     def index 
-        @reservations = Reservation.all 
+        @reservations = current_user.reservations 
         render :index 
     end
+
 
 
 

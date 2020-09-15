@@ -1,5 +1,6 @@
 import merge from "lodash.merge"
 import {RECEIVE_SPOTS, RECEIVE_SPOT} from "../actions/spot_actions"
+import {RECEIVE_RESERVATION} from "../actions/reservation_actions"
 
 const SpotReducer = (state = {}, action) => {
     Object.freeze(state)
@@ -11,6 +12,10 @@ const SpotReducer = (state = {}, action) => {
         case RECEIVE_SPOT:
             const {spot} = action;
             return merge(newState, { [spot.id]: spot});
+            case RECEIVE_RESERVATION:
+                debugger
+                const {spots} = action;
+                return spots
         default:
             return state;
     }

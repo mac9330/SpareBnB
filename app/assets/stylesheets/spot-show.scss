@@ -74,6 +74,11 @@
         opacity: 0.8;
     }
 
+    .owner-name {
+        font-size: 24px;
+        font-weight: 600;
+    }
+
     .flex-col {
         display: flex;
         width: 100%;
@@ -123,7 +128,7 @@
         }
 
         label {
-            font-weight: 600;
+            font-weight: 400;
             font-size: larger;
         }
 
@@ -147,7 +152,7 @@
             width: 95%;
             border: 1px solid black;
             border-radius: 10px;
-            padding: 5% 2%;
+            padding: 4% 2%;
             margin-bottom: 1%;
         }
 

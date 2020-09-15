@@ -33,12 +33,17 @@ class Reviews extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const review = Object.assign({}, this.state);
-    review.rating = parseInt(review.rating);
-    review.spot_id = parseInt(review.spot_id);
-    review.user_id = parseInt(review.user_id)
-    this.props.postReview(review);
-    this.setState({reviews: this.state.reviews.concat(review)})
+    debugger
+    if (this.props.currentUser === undefined) {
+      this.props.openModal("Login");
+    } else {
+      const review = Object.assign({}, this.state);
+      review.rating = parseInt(review.rating);
+      review.spot_id = parseInt(review.spot_id);
+      review.user_id = parseInt(review.user_id);
+      this.props.postReview(review);
+      this.setState({ reviews: this.state.reviews?.concat(review) });
+    }
   }
 
   description() {
@@ -54,7 +59,6 @@ class Reviews extends React.Component {
   }
 
   renderForm() {
-    if (this.props.currentUser) {
     return (
       <form className="rating-form" onSubmit={this.handleSubmit}>
         <label>
@@ -85,9 +89,6 @@ class Reviews extends React.Component {
         <input type="submit" value="Submit Review" />
       </form>
     );
-    } else {
-      return <p>Please Sign In to Submit a Review</p>
-    }
   }
 
   getDate(date) {
@@ -108,7 +109,7 @@ class Reviews extends React.Component {
     const dateObj = new Date(date);
     const month = dateObj.getMonth();
     const year = dateObj.getFullYear();
-    return monthNames[month].concat(` ${year}`) 
+    return monthNames[month]?.concat(` ${year}`) 
   }
 
   render() {
@@ -120,7 +121,7 @@ class Reviews extends React.Component {
       <div className="flex-col">
         <div className="spot-description">
           <hr className="hr-fix" />
-          <p>
+          <p className="owner-name">
             {owner?.fname} {owner?.lname} owns this property
           </p>
           <hr className="hr-fix" />
@@ -129,8 +130,9 @@ class Reviews extends React.Component {
           !this.state.readMore ? (
             <>
               {" "}
-              <span className="dots">...</span>
-              <a onClick={this.readMore}>read more</a>{" "}
+              <span className="dots">
+                ... <a onClick={this.readMore}>read more</a>{" "}
+              </span>
             </>
           ) : null}
           <div>
@@ -161,9 +163,12 @@ class Reviews extends React.Component {
             {this.renderForm()}
           </div>
         </div>
-          <div>
-            <Reservation spotId={this.props.spotId} />
-          </div>
+        <div>
+          <Reservation
+            postReservation={this.props.postReservation}
+            spotId={this.props.spotId}
+          />
+        </div>
       </div>
     );
   }

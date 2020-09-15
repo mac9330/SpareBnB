@@ -1,6 +1,6 @@
 class Reservation < ApplicationRecord
     validates :user_id, :spot_id, :check_in, :check_out, :num_guests, presence: true
-
+    validate :no_overlap, on: :create
     belongs_to :user 
     belongs_to :spot 
 
@@ -14,4 +14,12 @@ class Reservation < ApplicationRecord
     def already_booked? 
         overlapping_reservations.empty? 
     end
+
+    def no_overlap 
+        if !already_booked? 
+            errors.add(:check_in, "Error: That date is already booked")
+        end
+    end
+
 end
+ 

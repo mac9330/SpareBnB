@@ -4,12 +4,18 @@ class Reservation extends React.Component {
 
     constructor(props) {
         super(props)
-
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, "0");
+        var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+        var yyyy = today.getFullYear();
         this.state = {
-          check_in: Date.now(),
-          check_out: Date.now(),
+          check_in: `${yyyy}-${mm}-${dd}`,
+          check_out: `${yyyy}-${mm}-${dd}`,
           num_guests: 0,
         };
+
+        this.update = this.update.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     update(field) {
