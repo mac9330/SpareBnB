@@ -13,7 +13,6 @@ const SpotReducer = (state = {}, action) => {
             const {spot} = action;
             return merge(newState, { [spot.id]: spot});
             case RECEIVE_RESERVATION:
-                debugger
                 const {spots} = action;
                 return spots
         default:

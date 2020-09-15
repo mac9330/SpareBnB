@@ -24,9 +24,14 @@ class Reservation extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const reservation = Object.assign({}, this.state);
-        reservation.spot_id = this.props.spotId
-        this.props.postReservation(reservation);
+         if (this.props.currentUser === undefined) {
+           this.props.openModal("Login");
+         } {
+             const reservation = Object.assign({}, this.state);
+             reservation.spot_id = this.props.spotId
+             this.props.postReservation(reservation);
+
+         }
     }
 
     render() {

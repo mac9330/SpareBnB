@@ -40,16 +40,17 @@
         width: 500px;
     }
 
-    .auth-input {
-        border: 1px solid red;
-        background-color: $error-background;
-    }
+    
+}
 
-    .errors-list {
-        color: rgb(193, 53, 21);
-        font-size: 12px;
-        line-height: 16px;
-        font-weight: 400;
-        font-family: $fontbnb;
-    }
+.auth-input {
+    border: 1px solid red;
+    background-color: $error-background;
+}
+.errors-list {
+    color: rgb(193, 53, 21);
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+    font-family: $fontbnb;
 }

@@ -9,6 +9,7 @@ class Reviews extends React.Component {
 
     this.state = {
       spot_id: this.props.spotId,
+      user_id: this.props.currentUser.id,
       rating: "You must select a Rating",
       description: "",
       reviews: Object.values(this.props.reviews),
@@ -19,6 +20,9 @@ class Reviews extends React.Component {
     this.update = this.update.bind(this)
     this.readMore = this.readMore.bind(this)
     this.description = this.description.bind(this)
+  }
+
+  componentDidMount() {
   }
 
   componentDidUpdate() {
@@ -33,7 +37,6 @@ class Reviews extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    debugger
     if (this.props.currentUser === undefined) {
       this.props.openModal("Login");
     } else {
@@ -42,7 +45,13 @@ class Reviews extends React.Component {
       review.spot_id = parseInt(review.spot_id);
       review.user_id = parseInt(review.user_id);
       this.props.postReview(review);
-      this.setState({ reviews: this.state.reviews?.concat(review) });
+      let alreadyReviewed = false;
+      Object.values(this.props.reviews).forEach(el => {
+        if (el.user_id === review.user_id) alreadyReviewed = true;
+      })
+      if (!alreadyReviewed && typeof review.rating ===  "number")
+        this.setState({ reviews: this.state.reviews?.concat(review) });
+        this.props.clearReviewErrors();
     }
   }
 
@@ -61,6 +70,16 @@ class Reviews extends React.Component {
   renderForm() {
     return (
       <form className="rating-form" onSubmit={this.handleSubmit}>
+        <ul className="errors-list">
+        {this.props.errors?.review?.map((err, i) => {
+          return (
+            <li key={i}>
+              <i className="fa fa-exclamation-circle" aria-hidden="true"></i>{" "}
+              {err}
+            </li>
+          );
+        })}
+        </ul>
         <label>
           <p className="rating-label">Rating</p>
           <select
@@ -108,8 +127,37 @@ class Reviews extends React.Component {
     ];
     const dateObj = new Date(date);
     const month = dateObj.getMonth();
-    const year = dateObj.getFullYear();
-    return monthNames[month]?.concat(` ${year}`) 
+    const year = dateObj.getFullYear(); 
+    return date ? monthNames[month]?.concat(` ${year}`) : "Just Now"
+  }
+
+  reviews() {
+    let reviews;
+    if (this.props.errors?.reviews?.length === 0) {
+      reviews = this.props?.reviews
+    } else {
+      reviews = this.state.reviews
+    }
+    return <div>{
+      reviews?.map((review, idx) => {
+        return review.description ? (
+          <li key={idx}>
+            <p className="review-name">
+              {this.props.users[review?.user_id]?.fname}{" "}
+              {this.props.users[review?.user_id]?.lname}
+            </p>
+            <p className="review-date">
+              {this.getDate(review.created_at)}
+            </p>
+            <p className="review-description">
+              {review?.description}
+            </p>
+            <hr className="hr-fix" />
+          </li>
+        ) : null;
+      })
+    } </div>
+
   }
 
   render() {
@@ -143,21 +191,7 @@ class Reviews extends React.Component {
             </h2>
             <hr className="hr-fix" />
             <ul>
-              {reviews.map((review, idx) => {
-                return review.description ? (
-                  <li key={idx}>
-                    <p className="review-name">
-                      {users[review?.user_id]?.fname}{" "}
-                      {users[review?.user_id]?.lname}
-                    </p>
-                    <p className="review-date">
-                      {this.getDate(review.created_at)}
-                    </p>
-                    <p className="review-description">{review?.description}</p>
-                    <hr className="hr-fix" />
-                  </li>
-                ) : null;
-              })}
+              {this.reviews()}
             </ul>
 
             {this.renderForm()}
