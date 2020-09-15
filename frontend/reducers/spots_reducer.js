@@ -7,6 +7,7 @@ const SpotReducer = (state = {}, action) => {
     
     switch(action.type) {
         case RECEIVE_SPOTS:
+            debugger;
             return action.spots;
         case RECEIVE_SPOT:
             const {spot} = action;
