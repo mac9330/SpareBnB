@@ -15,6 +15,7 @@ const receiveSpot = (payload) => {
     users: payload.users,
     user: payload.user,
     reviews: payload.reviews,
+    averageRating: payload.average_rating,
 }}
 
 

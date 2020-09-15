@@ -29,10 +29,7 @@ import reverse from 'reverse-geocode'
 
     render() {
         const spot = this.props.spot ? this.props.spot : null;
-        const owner = this.props.users ? this.props.users[this.props.spotId] : null;
-        const owner_name = owner ? `${owner.fname} ${owner.lname}` : null;
         const name = spot ? spot.name : null;
-        const description = spot ? spot.description : null;
         const price = spot ? spot.price : null;
         const photos = spot ? spot.photoUrls : [];
         return (
@@ -59,13 +56,6 @@ import reverse from 'reverse-geocode'
                 <img className="bot-right" src={`${photos[4]}`} />
               </div>
             </div>
-            <div className="spot-description">
-              <hr className="hr-fix" />
-              <p>{owner_name} owns this property</p>
-              <hr className="hr-fix" />
-              {description}
-            </div>
-
             <p className="spot-price">
               <span className="single-spot-price">${price}</span>/ night
             </p>

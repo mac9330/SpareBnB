@@ -10,10 +10,10 @@ class SingleSpotMap extends React.Component {
 
     constructor(props) {
         super(props)
-        this.props.fetchSpot(this.props.spotId)
     }
 
     componentDidMount() {
+       this.props.fetchSpot(this.props.spotId);
     }
 
     componentDidUpdate() {

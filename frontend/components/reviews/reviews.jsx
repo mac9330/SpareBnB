@@ -1,4 +1,6 @@
 import React from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar} from "@fortawesome/free-solid-svg-icons"
 
 class Reviews extends React.Component {
   constructor(props) {
@@ -10,16 +12,17 @@ class Reviews extends React.Component {
       rating: "You must select a Rating",
       description: "",
       reviews: Object.values(this.props.reviews),
-      fetchedSpot: false
+      readMore: false,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this)
     this.update = this.update.bind(this)
+    this.readMore = this.readMore.bind(this)
+    this.description = this.description.bind(this)
   }
 
   componentDidUpdate() {
-    debugger
-    if (this.props.spot && this.state.reviews.length === 0 && this.state.fetchedSpot) {
+    if (this.props.spot && this.state.reviews.length === 0) {
       this.setState({reviews: Object.values(this.props.reviews)});
     }
   }
@@ -38,11 +41,24 @@ class Reviews extends React.Component {
     this.setState({reviews: this.state.reviews.concat(review)})
   }
 
+  description() {
+    if (this.state.readMore) {
+      return this.props?.spot?.description
+    } else {
+      return this.props?.spot?.description.slice(0, 400)
+    }
+  }
+
+  readMore() {
+    this.setState({readMore: true})
+  }
+
   renderForm() {
+    if (this.props.currentUser) {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="rating-form" onSubmit={this.handleSubmit}>
         <label>
-          Rating
+          <p className="rating-label">Rating</p>
           <select
             onChange={this.update("rating")}
             value={this.state.rating}
@@ -59,6 +75,7 @@ class Reviews extends React.Component {
         <br />
         <label>
           Description
+          <br/>
           <textarea
             value={this.state.description}
             onChange={this.update("description")}
@@ -68,24 +85,80 @@ class Reviews extends React.Component {
         <input type="submit" value="Submit Review" />
       </form>
     );
+    } else {
+      return <p>Please Sign In to Submit a Review</p>
+    }
+  }
+
+  getDate(date) {
+    const monthNames = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    const dateObj = new Date(date);
+    const month = dateObj.getMonth();
+    const year = dateObj.getFullYear();
+    return monthNames[month].concat(` ${year}`) 
   }
 
   render() {
     const reviews = this.state.reviews ? this.state.reviews : {};
     const users = this.props.users ? this.props.users : {};
+    const owner = this.props.users ? this.props.users[this.props.spot?.user_id] : null;
+    const averageRating = this.props?.spot?.average_rating.slice(0, 4)
+    debugger
     return (
-      <div>
-        <ul>
-          {reviews.map((review, idx) => {
-            return <li key={idx}>
-              <p>{users[review?.user_id]?.fname}</p>
-              <p>{review?.rating}</p>
-              <p>{review?.description}</p>
-            </li>;
-          })}
-        </ul>
+      <div className="spot-description">
+        <hr className="hr-fix" />
+        <p>
+          {owner?.fname} {owner?.lname} owns this property
+        </p>
+        <hr className="hr-fix" />
+        <p className="">{this.description()}</p>
+        {this.props?.spot?.description.length > 400 && !this.state.readMore ? (
+          <>
+            {" "}
+            <span className="dots">...</span>
+            <a onClick={this.readMore}>read more</a>{" "}
+          </>
+        ) : null}
+        <div>
+          <hr className="hr-fix" />
+          <h2 className="average-rating">
+            <FontAwesomeIcon className="fa-star" icon={faStar} />{" "}
+            {averageRating} ({reviews?.length} reviews)
+          </h2>
+          <hr className="hr-fix" />
+          <ul>
+            {reviews.map((review, idx) => {
+              return review.description ? (
+                <li key={idx}>
+                  <p className="review-name">
+                    {users[review?.user_id]?.fname}{" "}
+                    {users[review?.user_id]?.lname}
+                  </p>
+                  <p className="review-date">
+                    {this.getDate(review.created_at)}
+                  </p>
+                  <p className="review-description">{review?.description}</p>
+                  <hr className="hr-fix" />
+                </li>
+              ) : null;
+            })}
+          </ul>
 
           {this.renderForm()}
+        </div>
       </div>
     );
   }

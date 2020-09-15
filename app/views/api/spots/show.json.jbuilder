@@ -3,7 +3,9 @@ json.spot do
 end
 
 json.user do 
+  json.set! @spot.user_id do
     json.partial! '/api/users/user', user: @spot.user 
+  end
 end
 
 @spot.reviews.includes(:user).each do |review|
@@ -15,7 +17,8 @@ end
 
   json.users do
     json.set! review.user.id do
-      json.extract! review.user, :id, :email, :fname, :lname
-      end
+    json.extract! review.user, :id, :email, :fname, :lname
     end
   end
+end
+
