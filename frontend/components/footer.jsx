@@ -1,5 +1,4 @@
 import React from "react"
-import {Link} from "react-router-dom"
 
 class Footer extends React.Component {
 
@@ -14,7 +13,7 @@ class Footer extends React.Component {
                 <a href="https://www.linkedin.com/in/mackenzie-young-296787189/">
                   LinkedIn
                 </a>
-                <a href="https://mac9330.github.io/">My Site</a>
+                <a href="https://mac9330.github.io/">Portfolio Site</a>
               </div>
 
               <div className="footer-languages">

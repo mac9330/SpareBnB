@@ -4,19 +4,14 @@ import NotFoundContainer from "./404"
 import SpotSearchContainer from "./spots/spot_search_container";
 import SpotShowContainer from "./spots/spot_show_container"
 import SpotCreateFormContainer from "./spots/spot_create_form_container"
+import ReservationsContainer from "./reservations/reservations_index_container"
 import Home from "./home"
 import Footer from "./footer"
-
 import ProtectedRoute from '../util/route_util';
-
-
-
 
 import {
     Route,
-    Redirect,
     Switch,
-    Link
 } from 'react-router-dom';
 
 export default () => (
@@ -28,6 +23,7 @@ export default () => (
             <ProtectedRoute exact path="/spots/new" component={SpotCreateFormContainer} />
             <Route path="/spots/:spotId" component={SpotShowContainer} />
             <Route component={NotFoundContainer} />
+            <Route path="/reservations/:userId" component={ReservationsContainer} />
         </Switch>
         <Footer />
     </div>

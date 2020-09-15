@@ -29,8 +29,8 @@ export const clearReservationErrors = () => ({
 })
 
 
-export const fetchReservations = () => dispatch => {
-    return ReservationAPIUtil.fetchReservations()
+export const fetchReservations = (userId) => dispatch => {
+    return ReservationAPIUtil.fetchReservations(userId)
         .then(reservations => (dispatch(receiveReservations(reservations))))
 };
 
