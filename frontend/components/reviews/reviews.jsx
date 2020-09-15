@@ -22,7 +22,8 @@ class Reviews extends React.Component {
   }
 
   componentDidUpdate() {
-    if (this.props.spot && this.state.reviews.length === 0) {
+    debugger
+    if (this.props.spot && this.state.reviews.length === 0 && Object.values(this.props.reviews).length  !== 0) {
       this.setState({reviews: Object.values(this.props.reviews)});
     }
   }
@@ -115,7 +116,7 @@ class Reviews extends React.Component {
     const reviews = this.state.reviews ? this.state.reviews : {};
     const users = this.props.users ? this.props.users : {};
     const owner = this.props.users ? this.props.users[this.props.spot?.user_id] : null;
-    const averageRating = this.props?.spot?.average_rating.slice(0, 4)
+    const averageRating = this.props?.spot?.average_rating?.slice(0, 4)
     debugger
     return (
       <div className="spot-description">
