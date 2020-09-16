@@ -7,10 +7,9 @@ import {
 const ReservationsReducer = (state = {}, action) => {
     Object.freeze(state)
     const newState = merge({}, state)
-
     switch (action.type) {
         case RECEIVE_RESERVATIONS:
-            action.reservations;
+            action.payload;
         case RECEIVE_RESERVATION:
             const {reservations} = action;
             return reservations

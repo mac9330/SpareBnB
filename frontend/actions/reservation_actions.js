@@ -6,9 +6,10 @@ export const RECEIVE_RESERVATION = "RECEIVE_RESERVATION"
 export const RECEIVE_RESERVATION_ERRORS = "RECEIVE_RESERVATION_ERRORS"
 export const CLEAR_RESERVATION_ERRORS = "CLEAR_RESERVATION_ERRORS"
 
-const receiveReservations = (reservations) => ({
+const receiveReservations = (payload) => ({
     type: RECEIVE_RESERVATIONS,
-    reservations
+    spots: payload.spots,
+    reservations: payload.reservations,
 })
 
 const receiveReservation = (payload) => {

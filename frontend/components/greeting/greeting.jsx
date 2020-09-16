@@ -8,14 +8,13 @@ import UserDropdown from "./user_dropdown"
 class Greeting extends React.Component {
     constructor(props) {
         super(props)
-
     }
 
     welcome() {
         return (
             <div className="welcome-div">
                 <Link to="/" ><InlineIcon icon={airbnbIcon} className="logo" /></Link>
-                <UserDropdown logout={this.props.logout} />
+                <UserDropdown currentUser={this.props.currentUser} logout={this.props.logout} />
             </div>
         )
     }

@@ -22,8 +22,8 @@ export default () => (
             <Route exact path="/spots" component={SpotSearchContainer} />
             <ProtectedRoute exact path="/spots/new" component={SpotCreateFormContainer} />
             <Route path="/spots/:spotId" component={SpotShowContainer} />
+            <ProtectedRoute exact path="/reservations/" component={ReservationsContainer} />
             <Route component={NotFoundContainer} />
-            <Route path="/reservations/:userId" component={ReservationsContainer} />
         </Switch>
         <Footer />
     </div>
