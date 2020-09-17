@@ -12,7 +12,7 @@ const SpotIndexItem = ({spot}) => {
                 <br/>
                 <p className="idx-accomadations"> {spot.max_occupancy} guests <span>&#183;</span> {spot.num_bedrooms} bedrooms <span>&#183;</span> {spot.num_beds} beds <span>&#183;</span>  {spot.num_bathrooms} baths  </p>
                 <br/>
-                <p className="idx-amenities">Wifi <span>&#183;</span> Air Conditioning <span>&#183;</span> Pool <span>&#183;</span> Grill <span>&#183;</span> Outdoor Shower</p> 
+                {/* {<p className="idx-amenities">Wifi <span>&#183;</span> Air Conditioning <span>&#183;</span> Pool <span>&#183;</span> Grill <span>&#183;</span> Outdoor Shower</p> } */}
                 <br/>
                 <div className="spot-price-con">
                         <p className="spot-price"><span>${spot.price}</span> / night &emsp;</p>

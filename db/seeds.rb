@@ -21,7 +21,7 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', 'seeds.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   u = User.create(email: Faker::Internet.email, password: "hunter2", fname: Faker::Name.first_name, lname: Faker::Name.last_name)
-  s = Spot.create(user_id: u.id, name: Faker::Lorem.sentence(word_count: 3, supplemental: true), description: row["description"], price: row["price"][1..-1].to_f, num_beds: row["num_beds"].to_i, num_bedrooms: row["num_bedrooms"].to_i, num_bathrooms: row["num_bathrooms"].to_f, max_occupancy: row["max_occupancy"].to_i, latitude: row["latitude"].to_f, longitude: row["longitude"].to_f)
+  s = Spot.create(user_id: u.id, name: row["name"], description: row["description"], price: row["price"][1..-1].to_f, num_beds: row["num_beds"].to_i, num_bedrooms: row["num_bedrooms"].to_i, num_bathrooms: row["num_bathrooms"].to_f, max_occupancy: row["max_occupancy"].to_i, latitude: row["latitude"].to_f, longitude: row["longitude"].to_f)
   r1 = Review.create(user_id: u.id-1, spot_id: s.id-3, rating: rand(1..5), description: row["comment1"] || null)
   r2 = Review.create(user_id: u.id-2, spot_id: s.id-1, rating: rand(1..5), description: row["comment2"] || null)
   r3 = Review.create(user_id: u.id-3, spot_id: s.id-2, rating: rand(1..5), description: row["comment3"] || null)
