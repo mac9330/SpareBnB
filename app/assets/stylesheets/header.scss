@@ -14,6 +14,7 @@
     box-sizing: border-box;
     width: 100%;
     position: absolute;
+    z-index: 2;
 
 }
 
@@ -31,15 +32,10 @@
         background: white;
         color: $black; 
         display: inline-flex;
-        padding: 5px 5px 5px 12px;
         align-items: center;
         border-radius: 21px;
-        width: 58px;
-        height: 30px;
         position: relative;
         cursor: pointer;
-        width: 100%;
-        height: 100%;
 
     }
 
@@ -131,10 +127,11 @@
 
 
 }
+    @media(min-width:751px) {
+        .auth-button {
+            // width: 80px;
+            // height: 40px;
+            padding: 5px 5px 5px 12px;
+        }
 
-.home-header {
-    .auth-button {
-        width: 58px;
-        height: 30px;
     }
-}

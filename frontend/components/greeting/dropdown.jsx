@@ -52,7 +52,7 @@ class Dropdown extends React.Component {
             <div>
                 <button className="auth-button" onClick={this.dropDown}>
                     <p><i className="fa fa-bars" aria-hidden="true"></i></p>
-                    <p><i className="fa fa-user-circle" aria-hidden="true"></i></p>
+                    <p className="login-signup"><i className="fa fa-user-circle" aria-hidden="true"></i></p>
                 </button>
                 {this.state.dropDown ? this.showDropdown() : null}
             </div>
