@@ -6,19 +6,17 @@ import {
 } from "react-dates";
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
+import moment from "moment";
 
 class Reservation extends React.Component {
 
     constructor(props) {
         super(props)
-        var today = new Date();
-        var dd = String(today.getDate()).padStart(2, "0");
-        var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-        var yyyy = today.getFullYear();
         this.state = {
-          check_in: `${yyyy}-${mm}-${dd}`,
-          check_out: `${yyyy}-${mm}-${dd}`,
+          check_in: moment(),
+          check_out: moment(),
           num_guests: 0,
+          focusedInput: [this.state.check_in, this.state.check_out]
         };
         this.props.clearReservationErrors();
         this.update = this.update.bind(this)
@@ -59,15 +57,8 @@ class Reservation extends React.Component {
                 })}
               </ul>
               <div className="date-labels">
-                <label>Start Date</label>
-                <label>End Date</label>
               </div>
               <div className="date-labels">
-                <input
-                  type="date"
-                  value={this.state.check_in}
-                  onChange={this.update("check_in")}
-                />
                 <DateRangePicker
                   startDate={this.state.check_in} // momentPropTypes.momentObj or null,
                   startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
@@ -80,11 +71,6 @@ class Reservation extends React.Component {
                   onFocusChange={(focusedInput) =>
                     this.setState({ focusedInput })
                   } // PropTypes.func.isRequired,
-                />
-                <input
-                  type="date"
-                  value={this.state.check_out}
-                  onChange={this.update("check_out")}
                 />
               </div>
               <div className="num-guests">
