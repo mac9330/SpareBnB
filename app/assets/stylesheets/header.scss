@@ -48,6 +48,8 @@
         display: flexbox;
     }
 
+
+
     .logo {
        font-size: 40px;
     }
@@ -129,9 +131,7 @@
 }
     @media(min-width:751px) {
         .auth-button {
-            // width: 80px;
-            // height: 40px;
-            padding: 5px 5px 5px 12px;
+            padding: 8px 5px 8px 12px;
         }
 
     }
