@@ -1,4 +1,11 @@
 import React from "react";
+import {
+  DateRangePicker,
+  SingleDatePicker,
+  DayPickerRangeController,
+} from "react-dates";
+import "react-dates/initialize";
+import "react-dates/lib/css/_datepicker.css";
 
 class Reservation extends React.Component {
 
@@ -36,49 +43,64 @@ class Reservation extends React.Component {
 
     render() {
         return (
-          <form className="bookings" onSubmit={this.handleSubmit}>
-            <ul className="errors-list">
-              {this.props.errors?.reservation?.map((err, i) => {
-                return (
-                  <li key={i}>
-                    <i
-                      className="fa fa-exclamation-circle"
-                      aria-hidden="true"
-                    ></i>{" "}
-                    {err}
-                  </li>
-                );
-              })}
-            </ul>
-            <div className="date-labels">
-              <label>Start Date</label>
-              <label>End Date</label>
-            </div>
-            <div className="date-labels">
-              <input
-                type="date"
-                value={this.state.check_in}
-                onChange={this.update("check_in")}
-              />
-              <input
-                type="date"
-                value={this.state.check_out}
-                onChange={this.update("check_out")}
-              />
-            </div>
-            <div className="num-guests">
-              <label>
+          <div>
+            <form className="bookings" onSubmit={this.handleSubmit}>
+              <ul className="errors-list">
+                {this.props.errors?.reservation?.map((err, i) => {
+                  return (
+                    <li key={i}>
+                      <i
+                        className="fa fa-exclamation-circle"
+                        aria-hidden="true"
+                      ></i>{" "}
+                      {err}
+                    </li>
+                  );
+                })}
+              </ul>
+              <div className="date-labels">
+                <label>Start Date</label>
+                <label>End Date</label>
+              </div>
+              <div className="date-labels">
                 <input
-                  type="number"
-                  value={this.state.num_guests}
-                  onChange={this.update("num_guests")}
+                  type="date"
+                  value={this.state.check_in}
+                  onChange={this.update("check_in")}
                 />
-                Number Of Guests
-              </label>
-              <br />
-              <input type="submit" value="Make a Reservation" />
-            </div>
-          </form>
+                <DateRangePicker
+                  startDate={this.state.check_in} // momentPropTypes.momentObj or null,
+                  startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
+                  endDate={this.state.check_out} // momentPropTypes.momentObj or null,
+                  endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
+                  onDatesChange={({ check_in, check_out }) =>
+                    this.setState({ check_in, check_out })
+                  } // PropTypes.func.isRequired,
+                  focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+                  onFocusChange={(focusedInput) =>
+                    this.setState({ focusedInput })
+                  } // PropTypes.func.isRequired,
+                />
+                <input
+                  type="date"
+                  value={this.state.check_out}
+                  onChange={this.update("check_out")}
+                />
+              </div>
+              <div className="num-guests">
+                <label>
+                  <input
+                    type="number"
+                    value={this.state.num_guests}
+                    onChange={this.update("num_guests")}
+                  />
+                  Number Of Guests
+                </label>
+                <br />
+                <input type="submit" value="Make a Reservation" />
+              </div>
+            </form>
+          </div>
         );
     }
 }
