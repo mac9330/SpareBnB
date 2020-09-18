@@ -43,11 +43,11 @@ class ReservationsIndex extends React.Component {
 
           return (
             <div key={idx} className="booking">
-              <Link to={`/spots/${spot.id}`}>
-                <img src={`${spot.photoUrls[0]}`} />
+              <Link to={`/spots/${spot?.id}`}>
+                <img src={`${spot?.photoUrls[0]}`} />
               </Link>
               <li>
-                <Link to={`/spots/${spot.id}`}>
+                <Link to={`/spots/${spot?.id}`}>
                   <div className="trip-booked">
                     Click here for more info on your upcoming trip!
                   </div>

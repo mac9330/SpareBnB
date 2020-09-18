@@ -16,6 +16,7 @@ Spot.destroy_all
 Review.destroy_all
 Reservation.destroy_all
 
+demo = User.create(email: "myoung4@binghamton.edu", password: "123456", fname: "Mackenzie", lname: "Young")
 is = 0
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'seeds.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
@@ -37,5 +38,4 @@ csv.each do |row|
   is += 1
 end
 
-demo = User.create(email: "myoung4@binghamton.edu", password: "123456", fname: "Mackenzie", lname: "Young")
     
