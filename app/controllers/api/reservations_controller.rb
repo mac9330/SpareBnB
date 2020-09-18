@@ -3,7 +3,6 @@ class Api::ReservationsController < ApplicationController
     def create
         @reservation = Reservation.new(reservation_params)
         @reservation.user_id = current_user.id 
-        debugger
         if @reservation.overlapping_reservations && @reservation.save
             @reservations = current_user.reservations.push(@reservation)
             render :index
