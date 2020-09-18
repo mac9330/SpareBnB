@@ -8,10 +8,7 @@
     padding: 0;
 }
 .spot-search {
-
     margin-top: 100px;
-
-    
     .spot-map {
         position: absolute;
         overflow:auto;
@@ -48,6 +45,7 @@
             height: 61%;
         }
     }
+
     .spot-price {
         bottom: 0;
         width: 100%;
@@ -57,7 +55,6 @@
         font-size: 14px;
         color: grey;
         bottom: 1;
-        margin-top: 20%;
 
         span {
             font-weight: bolder;
@@ -71,7 +68,8 @@
 
     .spot-idx {
         position: absolute;
-        width: 80%;
+        width: 100%;
+        width: calc(100% - 600px);
         /* top/bottom = 0 means height is 100%, right:0 means div is anchored to right of body. */
         top: 12%;
         left: 0;  
@@ -89,6 +87,7 @@
     .item-info {
         display: flex;
         flex-direction: column;
+        width: 100%;
     }
 
     .idx-accomadations,
@@ -96,6 +95,32 @@
         color: $light-grey;
         opacity: 0.98;
         font-size: 14px;
+    }
+
+    .spot-idx-item {
+        margin-left: 15px;
+
+        border-bottom: 1px solid #848484;
+
+    }
+
+
+    .idx-empty {
+        margin: 20px;
+        font: $fontbnb;
+        font-size: 24px;
+        font-weight: bolder;
+    }
+
+    .spot-price {
+        margin-top: 15%;
+    }
+
+    
+    @media(max-width: 1400px) {
+        .spot-price {
+            margin-top: 20%;
+        }
     }
 
 
@@ -121,8 +146,44 @@
         }
 
         .spot-price {
-            margin: 5px;
+            margin-top: 10%;
+        }
+
+
+    }
+
+    @media(max-width:1000px) {
+        .spot-price {
+            margin-top: 15%;
+        }
+    }
+
+
+    @media(max-width:900px) {
+        .spot-price {
             margin-top: 20%;
+        }
+
+        .item-info {
+            text-align: center;
+        }
+    }
+
+    @media(max-width:750px) {
+        .spot-price {
+            margin-top: 5%;
+        }
+    }
+
+
+    @media(max-width: 700px) {
+
+        .item-info {
+            text-align: center;
+        }
+
+        .spot-price {
+            margin-top: 5%;
         }
     }
 
@@ -132,29 +193,9 @@
 
 }
 
-.spot-idx-item {
-    margin-left: 15px;
-    width: 70%;
-    
-     border-bottom: 1px solid #848484;
 
-}
 
-.search {
-    position: absolute;
-    z-index: 99999;
-    width: 30%;
-    height: 50px;
-    top: 20px;
-    left: calc(65vw - 30%)
-}
 
-.idx-empty {
-    margin: 20px;
-    font: $fontbnb;
-    font-size: 24px;
-    font-weight: bolder;
-}
 
 
 
