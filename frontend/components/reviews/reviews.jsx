@@ -201,6 +201,7 @@ class Reviews extends React.Component {
             openModal={this.props.openModal}
             errors={this.props.errors}
             clearReservationErrors={this.props.clearReservationErrors}
+            history={this.props.history}
           />
         </div>
       </div>

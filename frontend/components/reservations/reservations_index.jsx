@@ -29,7 +29,7 @@ class ReservationsIndex extends React.Component {
     const dateObj = new Date(date);
     const month = dateObj.getMonth();
     const year = dateObj.getFullYear();
-    const day = dateObj.getDay();
+    const day = dateObj.getDate();
     return monthNames[month]?.concat(` ${day},`).concat(` ${year}`)
   }
 

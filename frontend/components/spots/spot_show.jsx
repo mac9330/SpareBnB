@@ -19,6 +19,7 @@ const SpotShow = ({
   clearReviewErrors,
   clearReservationErrors,
   errors,
+  history,
 }) => {
   return (
     <div className="spot-show">
@@ -40,6 +41,7 @@ const SpotShow = ({
         clearReviewErrors={clearReviewErrors}
         clearReservationErrors={clearReservationErrors}
         openModal={openModal}
+        history={history}
       />
       <SingleSpotMap
         spotId={spotId}

@@ -33,10 +33,11 @@ class Reservation extends React.Component {
          } else {
             const reservation = Object.assign({}, this.state);
             reservation.spot_id = this.props.spotId
-            reservation.check_in = this.state.check_in.toString();
-            reservation.check_out = this.state.check_out.toString();
+            reservation.check_in = new Date(this.state.check_in.toString());
+            reservation.check_out = new Date(this.state.check_out.toString());
             this.props.postReservation(reservation);
             this.props.clearReservationErrors();
+            this.props.history.push("/reservations")
          }
     }
 
