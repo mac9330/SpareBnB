@@ -139,10 +139,11 @@ class Reviews extends React.Component {
     }
     return <div>{
       reviews?.map((review, idx) => {
+        const fname = this.props.users[review?.user_id]?.fname ? this.props.users[review?.user_id]?.fname : "You"
         return review.description ? (
           <li key={idx}>
             <p className="review-name">
-              {this.props.users[review?.user_id]?.fname}{" "}
+              {fname}{" "}
               {this.props.users[review?.user_id]?.lname}
             </p>
             <p className="review-date">
