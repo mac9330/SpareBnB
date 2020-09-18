@@ -1,6 +1,7 @@
 .spot-show {
     margin: 2.5% 5%;
     .show-heading {
+        padding-top: 20px;
         font-size: 25px;
     }
 
@@ -274,6 +275,13 @@
         .img-grid{
             max-height: 175px;
         }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #start_date, #end_date {
+        padding: 10px 10px;
+        margin: 0 0px; 
     }
 }
 

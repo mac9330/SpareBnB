@@ -1,3 +1,6 @@
+import React from "react"
+import {Link} from 'react-router-dom'
+
 class MarkerManager {
     constructor(map) {
         this.map = map;
@@ -51,11 +54,12 @@ class MarkerManager {
             map: this.map,
             title: spot.name,
             icon: image,
+            url: `https://sparebnb.herokuapp.com/#/spots/${spot.id}`,
             label: {
-                text: `$${spot.id}`,
+                text: `$${spot.price}`,
                 color: 'white',
                 fontSize: '13px',
-                fontWeight: 'bold'
+                fontWeight: 'bold', 
             },
         })
         this.attachInfo(this.markers[spot.id], spot)
@@ -70,6 +74,10 @@ class MarkerManager {
             });
             marker.addListener("mouseout", () => {
                 infowindow.close(marker.get("map"), marker);
+            });
+            google.maps.event.addListener(marker, 'click', () => {
+                debugger
+                window.location.href = this.url
             });
     }
 
