@@ -20,7 +20,7 @@ div.search {
 
     .spot-search .spot-idx {
         top: 18%;
-        height: 33%;
+        height: 49%;
     }
 
     .auth-button {
@@ -64,5 +64,12 @@ div.search {
     .item-details {
         flex-direction: column;
         align-items: center;
+    }
+
+    .spot-search {
+        .spot-map {
+            top: 66%;
+            height: 34%;
+        }
     }
 }
