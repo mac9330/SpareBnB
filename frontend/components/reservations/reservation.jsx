@@ -29,10 +29,8 @@ class Reservation extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
          if (this.props.currentUser === undefined) {
-           debugger
            this.props.openModal("Login");
          } else {
-           debugger
             const reservation = Object.assign({}, this.state);
             reservation.spot_id = this.props.spotId
             reservation.check_in = this.state.check_in.toString();
