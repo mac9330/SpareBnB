@@ -50,6 +50,7 @@ class Reviews extends React.Component {
       if (!alreadyReviewed && typeof review.rating ===  "number")
         this.setState({ reviews: this.state.reviews?.concat(review) });
         this.props.clearReviewErrors();
+        this.setState({ rating: "You must select a Rating", description: "" });
     }
   }
 
