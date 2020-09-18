@@ -1,8 +1,7 @@
 import React from "react";
+
 import {
   DateRangePicker,
-  SingleDatePicker,
-  DayPickerRangeController,
 } from "react-dates";
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
@@ -16,7 +15,7 @@ class Reservation extends React.Component {
           check_in: moment(),
           check_out: moment(),
           num_guests: 0,
-          focusedInput: [this.state.check_in, this.state.check_out]
+          focusedInput: null,
         };
         this.props.clearReservationErrors();
         this.update = this.update.bind(this)
@@ -30,10 +29,14 @@ class Reservation extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
          if (this.props.currentUser === undefined) {
+           debugger
            this.props.openModal("Login");
          } else {
+           debugger
             const reservation = Object.assign({}, this.state);
             reservation.spot_id = this.props.spotId
+            reservation.check_in = this.state.check_in.toString();
+            reservation.check_out = this.state.check_out.toString();
             this.props.postReservation(reservation);
             this.props.clearReservationErrors();
          }
@@ -41,7 +44,6 @@ class Reservation extends React.Component {
 
     render() {
         return (
-          <div>
             <form className="bookings" onSubmit={this.handleSubmit}>
               <ul className="errors-list">
                 {this.props.errors?.reservation?.map((err, i) => {
@@ -56,23 +58,19 @@ class Reservation extends React.Component {
                   );
                 })}
               </ul>
-              <div className="date-labels">
-              </div>
-              <div className="date-labels">
                 <DateRangePicker
                   startDate={this.state.check_in} // momentPropTypes.momentObj or null,
-                  startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
+                  startDateId="start_date" // PropTypes.string.isRequired,
                   endDate={this.state.check_out} // momentPropTypes.momentObj or null,
-                  endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
-                  onDatesChange={({ check_in, check_out }) =>
-                    this.setState({ check_in, check_out })
+                  endDateId="end_date" // PropTypes.string.isRequired,
+                  onDatesChange={({ startDate, endDate }) =>
+                    this.setState({ check_in: startDate, check_out: endDate })
                   } // PropTypes.func.isRequired,
                   focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
                   onFocusChange={(focusedInput) =>
                     this.setState({ focusedInput })
                   } // PropTypes.func.isRequired,
                 />
-              </div>
               <div className="num-guests">
                 <label>
                   <input
@@ -83,10 +81,9 @@ class Reservation extends React.Component {
                   Number Of Guests
                 </label>
                 <br />
-                <input type="submit" value="Make a Reservation" />
+                <input id="reservation-btn" type="submit" value="Make a Reservation" />
               </div>
             </form>
-          </div>
         );
     }
 }

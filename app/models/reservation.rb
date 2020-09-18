@@ -1,6 +1,7 @@
 class Reservation < ApplicationRecord
     validates :user_id, :spot_id, :check_in, :check_out, :num_guests, presence: true
     validate :no_overlap, on: :create
+    validates :num_guests, numericality: { only_integer: true, other_than: 0 }
     belongs_to :user 
     belongs_to :spot 
 
