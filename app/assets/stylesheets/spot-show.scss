@@ -257,6 +257,7 @@
 
 
 
+
     @media(max-width: 750px) {
         .img-grid{
             max-height: 250px;
@@ -264,11 +265,17 @@
         .flex-col {
             flex-direction: column;
         }
-
         #start_date,
         #end_date {
             padding: 10px 21px;
             margin: 0 -19px;
+        }
+        #root>div>div.spot-show>div.flex-col>div:nth-child(2)>form>div.DateRangePicker.DateRangePicker_1>div>div>div.DateRangePicker_picker.DateRangePicker_picker_1.DateRangePicker_picker__directionLeft.DateRangePicker_picker__directionLeft_2 {
+            left: -114px
+        }
+
+        .bookings {
+            margin-bottom: 200px;
         }
 
 
@@ -283,6 +290,8 @@
                 margin: 0 -20px;
 
         }
+
+
     }
 }
 
