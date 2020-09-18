@@ -285,6 +285,13 @@
     }
 }
 
+@media only screen and (max-width: 400px) {
+        #start_date,
+        #end_date {
+            margin: 0 0px;
+        }
+}
+
 
 
 
