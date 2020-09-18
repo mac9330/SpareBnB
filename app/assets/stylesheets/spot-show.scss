@@ -265,15 +265,23 @@
             flex-direction: column;
         }
 
-        .DateInput_input {
-            padding: 10px 22px;
+        #start_date,
+        #end_date {
+            padding: 10px 21px;
             margin: 0 -19px;
         }
+
+
     }
 
     @media(max-width: 510px) {
         .img-grid{
             max-height: 175px;
+        }
+        #start_date, #end_date {
+                padding: 10px 23px;
+                margin: 0 -20px;
+
         }
     }
 }
@@ -282,6 +290,15 @@
     #start_date, #end_date {
     padding: 10px 15px;
     margin: 0 -13px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+
+    #start_date,
+    #end_date {
+        padding: 10px 5px;
+        margin: 0 -3px;
     }
 }
 
