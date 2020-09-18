@@ -75,9 +75,8 @@ class MarkerManager {
             marker.addListener("mouseout", () => {
                 infowindow.close(marker.get("map"), marker);
             });
-            google.maps.event.addListener(marker, 'click', () => {
-                debugger
-                window.location.href = this.url
+            marker.addListener('click', () => {
+                window.location.href = `/#/spots/${spot.id}`
             });
     }
 
