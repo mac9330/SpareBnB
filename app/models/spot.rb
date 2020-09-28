@@ -18,7 +18,6 @@
 #
 class Spot < ApplicationRecord
     validates :user_id, :name, :description, :price, :num_beds, :num_bedrooms, :num_bathrooms, :max_occupancy, :longitude, :latitude, presence: true
-    
     belongs_to :user
 
     has_many :reviews 

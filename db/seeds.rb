@@ -9,7 +9,7 @@
 require 'csv'
 require 'faker'
 require 'open-uri'
-# require 'byebug'
+require 'byebug'
 
 User.destroy_all
 Spot.destroy_all
@@ -29,6 +29,7 @@ csv.each do |row|
   file = open("https://sparebnb-seeds.s3.amazonaws.com/homes/#{is}.jpg")
   s.photos.attach(io: file, filename: "#{is}.jpg")
   j = 0
+  # debugger
   while j < 4 
     file = open("https://sparebnb-seeds.s3.amazonaws.com/rooms/#{is}-#{j}.jpg")
     s.photos.attach(io: file, filename: "#{is}-#{j}.jpg")

@@ -39,7 +39,7 @@ gem 'pry-rails'
 gem 'faker'
 
 gem "figaro"
-
+gem 'paperclip'
 gem "aws-sdk-s3"
 
 gem 'jquery-rails'
