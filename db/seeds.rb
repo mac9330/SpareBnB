@@ -9,7 +9,7 @@
 require 'csv'
 require 'faker'
 require 'open-uri'
-require 'byebug'
+# require 'byebug'
 
 User.destroy_all
 Spot.destroy_all
